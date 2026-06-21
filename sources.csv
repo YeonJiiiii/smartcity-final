@@ -1,0 +1,8 @@
+data_name,provider,base_year,raw_dataset,access_date,processed_file,status,notes
+사용자 정의 경계 polygon,사용자 작성,2023,pangyo_boundary.geojson; cheongna_boundary.geojson,2026-06-21,public/data/boundaries/*.geojson,사용중,"제1판교테크노밸리 및 청라국제업무지구 boundary 수동 작성"
+핵심 비교 지표,사용자 제공,2023,data/metrics.json,2026-06-21,data/metrics.json,사용중,"총인구·총가구수·총종사자수·총사업체수·직주비 확정값 유지"
+지하철 접근성 가공본,LMS subway_network.zip 기반,2023,network/nodes.tsv; network/links.tsv,2026-06-21,public/data/processed/subway_accessibility_summary.json,사용중,"백업 가공본에서 복사한 30·60분 도달 노드 및 접근성 곡선"
+지하철 도달 노드 GeoJSON,LMS subway_network.zip 기반,2023,subway_nodes_60.geojson,2026-06-21,public/data/processed/pangyo/*.geojson; public/data/processed/cheongna/*.geojson,사용중,"슬라이더에 따라 travel_minutes 기준으로 필터링"
+토지이용 요약,VWorld/KLIP 가공본,2023,pangyo/landuse_summary.json; cheongna/landuse_summary.json,2026-06-21,public/data/processed/pangyo/landuse_summary.json; public/data/processed/cheongna/landuse_summary.json,사용중,"혼합도와 면적 요약값만 정적 화면에 반영"
+배경지도,OpenStreetMap,상시,OSM Tile,2026-06-21,index.html,사용중,"시각화용 배경지도"
+출퇴근 시간대 부담 지표,정적 제출본 가정 계산,2023,index.html 내부 계산,2026-06-21,index.html,보조지표,"실제 혼잡 관측값이 아니라 접근성 비교를 위한 가정 기반 지표"

@@ -1,0 +1,181 @@
+{
+  "dataset": "subway_accessibility",
+  "reference_year": 2023,
+  "network_baseline_date": "2023-12-31",
+  "regions": {
+    "pangyo": {
+      "station_name": "판교",
+      "status": "ok",
+      "station_match_note": "정확 일치: 판교",
+      "reachable_nodes_30m": 79,
+      "reachable_nodes_60m": 443,
+      "curve_points": [
+        {
+          "minute": 0,
+          "reachable_nodes": 2,
+          "accessible_population": 0.0,
+          "accessible_workers": 0.0
+        },
+        {
+          "minute": 5,
+          "reachable_nodes": 3,
+          "accessible_population": 417.9571285329979,
+          "accessible_workers": 1265.1260377716085
+        },
+        {
+          "minute": 10,
+          "reachable_nodes": 8,
+          "accessible_population": 83562.95683496301,
+          "accessible_workers": 110404.00674686959
+        },
+        {
+          "minute": 15,
+          "reachable_nodes": 16,
+          "accessible_population": 177895.66257318604,
+          "accessible_workers": 220276.17505932343
+        },
+        {
+          "minute": 20,
+          "reachable_nodes": 24,
+          "accessible_population": 265525.6764276147,
+          "accessible_workers": 291185.29452649236
+        },
+        {
+          "minute": 25,
+          "reachable_nodes": 47,
+          "accessible_population": 290651.0494219283,
+          "accessible_workers": 299592.7920840217
+        },
+        {
+          "minute": 30,
+          "reachable_nodes": 79,
+          "accessible_population": 386471.4452800886,
+          "accessible_workers": 336605.06739819003
+        },
+        {
+          "minute": 35,
+          "reachable_nodes": 117,
+          "accessible_population": 451221.0,
+          "accessible_workers": 360740.0
+        },
+        {
+          "minute": 40,
+          "reachable_nodes": 162,
+          "accessible_population": 451221.0,
+          "accessible_workers": 360740.0
+        },
+        {
+          "minute": 45,
+          "reachable_nodes": 234,
+          "accessible_population": 451221.0,
+          "accessible_workers": 360740.0
+        },
+        {
+          "minute": 50,
+          "reachable_nodes": 328,
+          "accessible_population": 451221.0,
+          "accessible_workers": 360740.0
+        },
+        {
+          "minute": 55,
+          "reachable_nodes": 385,
+          "accessible_population": 451221.0,
+          "accessible_workers": 360740.0
+        },
+        {
+          "minute": 60,
+          "reachable_nodes": 443,
+          "accessible_population": 451221.0,
+          "accessible_workers": 360740.0
+        }
+      ]
+    },
+    "cheongna": {
+      "station_name": "청라국제도시",
+      "status": "ok",
+      "station_match_note": "정확 일치: 청라국제도시",
+      "reachable_nodes_30m": 47,
+      "reachable_nodes_60m": 296,
+      "curve_points": [
+        {
+          "minute": 0,
+          "reachable_nodes": 1,
+          "accessible_population": 68.4576227047435,
+          "accessible_workers": 321.0150654385005
+        },
+        {
+          "minute": 5,
+          "reachable_nodes": 2,
+          "accessible_population": 0.0,
+          "accessible_workers": 0.0
+        },
+        {
+          "minute": 10,
+          "reachable_nodes": 3,
+          "accessible_population": 1009.4853274980492,
+          "accessible_workers": 2431.2132386227036
+        },
+        {
+          "minute": 15,
+          "reachable_nodes": 7,
+          "accessible_population": 54661.313431707225,
+          "accessible_workers": 21022.132803910205
+        },
+        {
+          "minute": 20,
+          "reachable_nodes": 17,
+          "accessible_population": 323838.1843190317,
+          "accessible_workers": 105218.94791644995
+        },
+        {
+          "minute": 25,
+          "reachable_nodes": 29,
+          "accessible_population": 381734.85122253327,
+          "accessible_workers": 121654.2885612722
+        },
+        {
+          "minute": 30,
+          "reachable_nodes": 47,
+          "accessible_population": 525458.3270461642,
+          "accessible_workers": 183134.1296884619
+        },
+        {
+          "minute": 35,
+          "reachable_nodes": 62,
+          "accessible_population": 560842.6475839836,
+          "accessible_workers": 210025.7410302453
+        },
+        {
+          "minute": 40,
+          "reachable_nodes": 85,
+          "accessible_population": 610137.4251396365,
+          "accessible_workers": 218454.93541968148
+        },
+        {
+          "minute": 45,
+          "reachable_nodes": 127,
+          "accessible_population": 621351.2719809236,
+          "accessible_workers": 235227.75331137562
+        },
+        {
+          "minute": 50,
+          "reachable_nodes": 191,
+          "accessible_population": 621848.0,
+          "accessible_workers": 238937.0
+        },
+        {
+          "minute": 55,
+          "reachable_nodes": 242,
+          "accessible_population": 621848.0,
+          "accessible_workers": 238937.0
+        },
+        {
+          "minute": 60,
+          "reachable_nodes": 296,
+          "accessible_population": 621848.0,
+          "accessible_workers": 238937.0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+﻿{
+  "status": "sample_schema_data_unavailable",
+  "baseYear": null,
+  "method": "LMS subway network + Dijkstra 예정",
+  "stationValidation": {
+    "pangyo": {
+      "candidateStation": "판교역",
+      "selectedStation": null,
+      "reason": "nodes.tsv 미제공으로 검증 미수행"
+    },
+    "cheongna": {
+      "candidateStation": "청라국제도시역",
+      "selectedStation": null,
+      "reason": "nodes.tsv 미제공으로 검증 미수행"
+    }
+  },
+  "regions": {
+    "pangyo": {
+      "populationAccessible30Min": null,
+      "populationAccessible60Min": null,
+      "workersAccessible30Min": null,
+      "workersAccessible60Min": null,
+      "businessesAccessible30Min": null,
+      "businessesAccessible60Min": null,
+      "reachableStationCount30Min": null,
+      "reachableStationCount60Min": null,
+      "stationArea500mRatio": null,
+      "stationArea1kmRatio": null,
+      "busStopDensity": null,
+      "roadDensity": null
+    },
+    "cheongna": {
+      "populationAccessible30Min": null,
+      "populationAccessible60Min": null,
+      "workersAccessible30Min": null,
+      "workersAccessible60Min": null,
+      "businessesAccessible30Min": null,
+      "businessesAccessible60Min": null,
+      "reachableStationCount30Min": null,
+      "reachableStationCount60Min": null,
+      "stationArea500mRatio": null,
+      "stationArea1kmRatio": null,
+      "busStopDensity": null,
+      "roadDensity": null
+    }
+  }
+}

@@ -1,0 +1,22 @@
+﻿{
+  "status": "sample_schema_data_unavailable",
+  "baseYear": null,
+  "regions": {
+    "pangyo": {
+      "buildingCount": null,
+      "mainUseComposition": null,
+      "averageGrossFloorArea": null,
+      "averageLotArea": null,
+      "averageEstimatedFAR": null,
+      "developmentRealization": null
+    },
+    "cheongna": {
+      "buildingCount": null,
+      "mainUseComposition": null,
+      "averageGrossFloorArea": null,
+      "averageLotArea": null,
+      "averageEstimatedFAR": null,
+      "developmentRealization": null
+    }
+  }
+}

@@ -1,0 +1,37 @@
+﻿{
+  "baseYear": 2023,
+  "regions": {
+    "pangyo": {
+      "name": "제1판교테크노밸리",
+      "metrics": {
+        "totalPopulation": 357.43,
+        "totalHouseholds": 305.84,
+        "totalWorkers": 48306.45,
+        "totalBusinesses": 1562.08,
+        "jobHousingRatio": 135.15,
+        "roadDensity": null,
+        "lum": null,
+        "developmentRealization": null,
+        "workersAccessible30Min": null,
+        "workersAccessible60Min": null,
+        "landUseComposition": null
+      }
+    },
+    "cheongna": {
+      "name": "청라국제업무지구",
+      "metrics": {
+        "totalPopulation": 4856.82,
+        "totalHouseholds": 1826.78,
+        "totalWorkers": 707.34,
+        "totalBusinesses": 297.85,
+        "jobHousingRatio": 0.15,
+        "roadDensity": null,
+        "lum": null,
+        "developmentRealization": null,
+        "workersAccessible30Min": null,
+        "workersAccessible60Min": null,
+        "landUseComposition": null
+      }
+    }
+  }
+}

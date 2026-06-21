@@ -1,0 +1,170 @@
+{
+  "project": "데이터로 진단하는 업무지구의 성공과 실패",
+  "common_year": "2023",
+  "regions": {
+    "pangyo": "제1판교테크노밸리",
+    "cheongna": "청라국제업무지구"
+  },
+  "sections": [
+    {
+      "id": "landuse",
+      "title": "토지이용 분석",
+      "metrics": [
+        {
+          "id": "landuse_entropy",
+          "label": "토지이용 혼합도(LUM)",
+          "pangyo": 0.38642487379904655,
+          "compare": 0.6088506584682235,
+          "source": "KLIP UQ111",
+          "year": "2023",
+          "unit": "index"
+        },
+        {
+          "id": "building_count",
+          "label": "건물 수",
+          "pangyo": 259,
+          "compare": 2868,
+          "source": "국토지리정보원 수치지도",
+          "year": "2023",
+          "unit": "건"
+        },
+        {
+          "id": "building_footprint_area_m2",
+          "label": "건물 바닥면적 합계",
+          "pangyo": 200248.27429175668,
+          "compare": 557611.2859728108,
+          "source": "국토지리정보원 수치지도",
+          "year": "2023",
+          "unit": "m²"
+        },
+        {
+          "id": "building_coverage_ratio",
+          "label": "건물 피복률",
+          "pangyo": 0.22207545264492926,
+          "compare": 0.02719009412997405,
+          "source": "건물 바닥면적 / 구역 면적",
+          "year": "2023",
+          "unit": "ratio"
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "title": "교통망 분석",
+      "metrics": [
+        {
+          "id": "reachable_nodes_30m",
+          "label": "30분 도달 노드 수",
+          "pangyo": 79,
+          "compare": 47,
+          "source": "LMS subway_network.zip",
+          "year": "2023",
+          "unit": "개"
+        },
+        {
+          "id": "reachable_nodes_60m",
+          "label": "60분 도달 노드 수",
+          "pangyo": 443,
+          "compare": 296,
+          "source": "LMS subway_network.zip",
+          "year": "2023",
+          "unit": "개"
+        },
+        {
+          "id": "road_length_km",
+          "label": "도로 길이",
+          "pangyo": 9.151336527601718,
+          "compare": 40.64538528788152,
+          "source": "국토지리정보원 수치지도",
+          "year": "2023",
+          "unit": "km"
+        },
+        {
+          "id": "road_density_km_per_km2",
+          "label": "도로 밀도",
+          "pangyo": 10.148837531115177,
+          "compare": 1.9819395333767478,
+          "source": "국토지리정보원 수치지도",
+          "year": "2023",
+          "unit": "km/km²"
+        },
+        {
+          "id": "bus_stop_count",
+          "label": "버스정류장 수",
+          "pangyo": 33,
+          "compare": 307,
+          "source": "버스정류장 위치정보",
+          "year": "2023 기반 사용",
+          "unit": "개"
+        },
+        {
+          "id": "accessible_workers_60m",
+          "label": "60분 도달 가능 종사자",
+          "pangyo": 360740.0,
+          "compare": 238937.0,
+          "source": "SGIS + 지하철 네트워크",
+          "year": "2023",
+          "unit": "명"
+        }
+      ]
+    },
+    {
+      "id": "socio",
+      "title": "인구사회 분석",
+      "metrics": [
+        {
+          "id": "total_population",
+          "label": "총인구",
+          "pangyo": 672.7953816695804,
+          "compare": 110725.44018162502,
+          "source": "SGIS 인구총괄",
+          "year": "2023",
+          "unit": "명"
+        },
+        {
+          "id": "total_households",
+          "label": "총가구수",
+          "pangyo": 436.39908019444135,
+          "compare": 40974.04085069946,
+          "source": "SGIS 가구총괄",
+          "year": "2023",
+          "unit": "가구"
+        },
+        {
+          "id": "total_businesses",
+          "label": "총사업체수",
+          "pangyo": 1619.331023180008,
+          "compare": 9358.405502579233,
+          "source": "SGIS 총괄사업체수",
+          "year": "2023",
+          "unit": "개"
+        },
+        {
+          "id": "total_workers",
+          "label": "총종사자수",
+          "pangyo": 57248.205650284646,
+          "compare": 31872.937734486743,
+          "source": "SGIS 총괄종사자수",
+          "year": "2023",
+          "unit": "명"
+        },
+        {
+          "id": "jobs_housing_ratio",
+          "label": "직주비",
+          "pangyo": 85.09006929895972,
+          "compare": 0.2878555974327577,
+          "source": "총종사자수 / 총인구",
+          "year": "2023",
+          "unit": "배"
+        }
+      ]
+    }
+  ],
+  "validation_checks": {
+    "target_summary_exists": true,
+    "landuse_summary_exists": true,
+    "socio_summary_exists": true,
+    "transport_summary_exists": true,
+    "subway_summary_exists": true
+  }
+}

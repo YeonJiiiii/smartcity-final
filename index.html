@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데이터로 진단하는 업무지구의 성공과 실패</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <style>
+    :root {
+      --bg: #f3f5f8;
+      --panel: #ffffff;
+      --line: #d7dfeb;
+      --text: #142538;
+      --muted: #617184;
+      --navy: #1d3f70;
+      --navy-soft: #e9f0fb;
+      --brown: #8d4f39;
+      --brown-soft: #f7ece7;
+      --green: #6da18a;
+      --cyan: #7caec3;
+      --yellow: #d3a640;
+      --rose: #cb7a7a;
+      --shadow: 0 14px 36px rgba(20, 37, 56, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(1380px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .hero, .section {
+      padding: 24px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #edf3fb 100%);
+    }
+
+    .meta-line {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--navy-soft);
+      color: var(--navy);
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 3vw, 2.9rem);
+      line-height: 1.16;
+      color: #0f2745;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .grid-4, .grid-2, .metric-grid, .chart-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-2, .chart-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .cell, .metric-card, .chart-card, .info-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      padding: 14px 16px;
+    }
+
+    .kicker {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-bottom: 6px;
+    }
+
+    .big {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #102846;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.34rem;
+      color: #102846;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #112847;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .map-shell {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .compact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .compact-title {
+      font-weight: 800;
+      color: #153057;
+      margin-right: 2px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border: 1px solid #ccd6e4;
+      border-radius: 999px;
+      background: #fff;
+      color: #183156;
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
+
+    .chip input {
+      margin: 0;
+      width: 13px;
+      height: 13px;
+    }
+
+    .focus-row, .slider-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .focus-button {
+      border: 1px solid #ccd6e4;
+      background: #fff;
+      color: #173258;
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .focus-button.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    #map {
+      height: 620px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #eef3f8;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #f8fafc;
+      padding: 14px 16px;
+    }
+
+    .slider {
+      width: min(420px, 100%);
+      accent-color: var(--navy);
+    }
+
+    .ticks {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 4px;
+      width: min(420px, 100%);
+    }
+
+    .status {
+      color: #29496d;
+      background: #edf4fb;
+      border: 1px solid #cfe0f3;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      margin-top: 12px;
+    }
+
+    .warn {
+      color: #6d5422;
+      background: #fff8ea;
+      border: 1px solid #ead08b;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+    }
+
+    .map-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .attr-panel {
+      min-height: 210px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 980px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: #f3f7fb;
+      color: #153057;
+      font-weight: 800;
+    }
+
+    tbody tr:hover {
+      background: #fbfcfe;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 300px !important;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 1120px) {
+      .map-shell,
+      .grid-2,
+      .chart-grid,
+      .grid-4,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="panel hero">
+      <div class="meta-line">가천대학교 스마트시티학과 · 스마트시티의 이론과 실제 · 202435355 이연지 · 기준연도 2023년</div>
+      <h1>데이터로 진단하는 업무지구의 성공과 실패</h1>
+      <p class="subtitle">제1판교테크노밸리와 청라국제업무지구 비교분석 시스템</p>
+    </section>
+
+    <section class="panel section">
+      <div class="section-head">
+        <h2>기본 정보</h2>
+        <div class="note">분석 방식: 사용자 정의 boundary polygon과 확보된 정량 지표 기반 비교</div>
+      </div>
+      <div class="grid-4">
+        <div class="info-card"><span class="kicker">과목</span><div class="big">스마트시티의 이론과 실제</div></div>
+        <div class="info-card"><span class="kicker">기준연도</span><div class="big">2023년</div></div>
+        <div class="info-card"><span class="kicker">대상지</span><div class="big">제1판교테크노밸리 / 청라국제업무지구</div></div>
+        <div class="info-card"><span class="kicker">경계 기준</span><div class="big">사용자 정의 polygon</div></div>
+      </div>
+    </section>
+
+    <section class="panel section">
+      <div class="section-head">
+        <h2>지도 기반 비교</h2>
+        <div class="note">지도, 건축물, 용도지역, 버스정류장, 지하철 노드, 등시간권을 한 화면에서 비교한다.</div>
+      </div>
+
+      <div class="compact-bar" id="filterBar">
+        <span class="compact-title">표시 항목</span>
+        <label class="chip"><input type="checkbox" data-filter="pangyoBoundary" checked>판교 경계</label>
+        <label class="chip"><input type="checkbox" data-filter="cheongnaBoundary" checked>청라 경계</label>
+        <label class="chip"><input type="checkbox" data-filter="buildings" checked>건축물</label>
+        <label class="chip"><input type="checkbox" data-filter="landuse" checked>용도지역도</label>
+        <label class="chip"><input type="checkbox" data-filter="roads" checked>도로</label>
+        <label class="chip"><input type="checkbox" data-filter="bus" checked>버스정류장</label>
+        <label class="chip"><input type="checkbox" data-filter="subwayNodes" checked>지하철 노드</label>
+        <label class="chip"><input type="checkbox" data-filter="iso" checked>등시간권</label>
+        <label class="chip"><input type="checkbox" data-filter="cards" checked>핵심 지표 카드</label>
+        <label class="chip"><input type="checkbox" data-filter="table" checked>실제 수치 비교표</label>
+        <label class="chip"><input type="checkbox" data-filter="charts" checked>그래프</label>
+        <label class="chip"><input type="checkbox" data-filter="analysis" checked>해석 문단</label>
+      </div>
+
+      <div class="focus-row">
+        <button class="focus-button active" data-focus="all">전체 보기</button>
+        <button class="focus-button" data-focus="pangyo">판교 중심</button>
+        <button class="focus-button" data-focus="cheongna">청라 중심</button>
+      </div>
+
+      <div class="slider-row">
+        <strong id="sliderLabel">선택 등시간권: 30분</strong>
+        <input class="slider" type="range" id="timeSlider" min="10" max="60" step="10" value="30">
+      </div>
+      <div class="ticks"><span>10분</span><span>20분</span><span>30분</span><span>40분</span><span>50분</span><span>60분</span></div>
+
+      <div class="map-shell">
+        <div>
+          <div id="map"></div>
+          <div class="legend">
+            <span><span class="swatch" style="background:#1d3f70"></span> 판교 경계</span>
+            <span><span class="swatch" style="background:#8d4f39"></span> 청라 경계</span>
+            <span><span class="swatch" style="background:#6da18a"></span> 건축물 주용도</span>
+            <span><span class="swatch" style="background:#7caec3"></span> 용도지역도</span>
+            <span><span class="swatch" style="background:#d3a640"></span> 버스정류장</span>
+            <span><span class="swatch" style="background:#cb7a7a"></span> 등시간권</span>
+          </div>
+          <div class="status" id="mapNote"></div>
+        </div>
+
+        <div class="map-side">
+          <div class="box">
+            <h3>등시간권 접근성</h3>
+            <div id="accessSummary"></div>
+          </div>
+          <div class="box attr-panel">
+            <h3>선택 객체 속성</h3>
+            <div id="featurePanel" class="note">건축물, 용도지역, 도로, 버스정류장, 등시간권을 클릭하면 속성이 여기에 표시된다.</div>
+          </div>
+          <div class="warn">
+            면적은 사용자가 직접 작성한 boundary polygon을 Turf.js로 계산한 값이다. 건축물, 도로, 버스정류장, 용도지역, 등시간권은 현재 polygon 기준으로 다시 계산한다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel section" id="cardsSection">
+      <div class="section-head">
+        <h2>핵심 지표 카드</h2>
+        <div class="note">총인구, 고용 집적, 경계 면적, 등시간권 접근성을 한 화면에서 비교한다.</div>
+      </div>
+      <div class="metric-grid" id="metricGrid"></div>
+    </section>
+
+    <section class="panel section" id="tableSection">
+      <div class="section-head">
+        <h2>실제 수치 비교표</h2>
+        <div class="note">총인구는 해석 주의가 필요하며, 총종사자수·총사업체수·직주비는 업무지구 활성화 핵심 지표로 본다.</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>지표</th>
+              <th>판교</th>
+              <th>청라</th>
+              <th>차이/배율</th>
+              <th>우세 지역</th>
+              <th>해석</th>
+            </tr>
+          </thead>
+          <tbody id="compareBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel section" id="chartsSection">
+      <div class="section-head">
+        <h2>비교 그래프</h2>
+        <div class="note">정규화 지수 = 해당 지역 값 / 두 지역 중 더 큰 값 × 100. 단위가 다른 지표를 함께 비교하기 위해 정규화했다.</div>
+      </div>
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>업무지구 활성화 핵심 지표 비교</h3>
+          <canvas id="coreChart"></canvas>
+          <div class="note">주석: 총종사자수, 총사업체수, 직주비를 함께 보면 판교가 청라보다 실제 업무·고용 집적이 훨씬 강한 구역이라는 점이 분명하게 드러난다.</div>
+        </div>
+        <div class="chart-card">
+          <h3>인구·고용 구조 비교</h3>
+          <canvas id="socioChart"></canvas>
+          <div class="note">주석: 청라는 상주인구가 더 크지만 고용과 사업체 집적은 판교가 우세하므로, 인구 규모만으로 업무지구의 성공 여부를 판단하기 어렵다.</div>
+        </div>
+        <div class="chart-card">
+          <h3>등시간권 변화에 따른 도달 노드 수</h3>
+          <canvas id="curveChart"></canvas>
+          <div class="note">주석: 시간 증가에 따라 두 지역 모두 도달 범위가 넓어지지만, 판교는 핵심역을 중심으로 더 많은 철도 노드에 연결되어 광역 네트워크 접근성이 상대적으로 강하게 나타난다.</div>
+        </div>
+        <div class="chart-card">
+          <h3>교통 접근성 보조지표 비교</h3>
+          <canvas id="transportChart"></canvas>
+          <div class="note">주석: 버스정류장과 도로, 철도 접근성 보조지표를 함께 보면 판교가 청라보다 업무지구 운영에 필요한 복합 교통 기반이 더 촘촘한 편으로 읽힌다.</div>
+        </div>
+        <div class="chart-card">
+          <h3>용도지역 구성 비교</h3>
+          <canvas id="landuseChart"></canvas>
+          <div class="note">주석: 용도지역 구성 차이는 두 지역의 계획 성격 차이를 보여주며, 판교는 실제 업무기능과 결합된 토지이용 구조를, 청라는 상대적으로 다른 성격의 공간 구성을 시사한다.</div>
+        </div>
+        <div class="chart-card">
+          <h3>도시 형태 지표 비교</h3>
+          <canvas id="urbanChart"></canvas>
+          <div class="note">주석: LUM, 건축 footprint 비율, 건축물 수를 종합하면 판교가 청라보다 실제 개발 집적과 업무지구 형태의 밀도가 더 높은 구역으로 해석된다.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel section" id="analysisSection">
+      <div class="section-head">
+        <h2>비교 해석</h2>
+        <div class="note">실제 확보한 수치와 현재 polygon 기준 재계산 결과만 사용한다.</div>
+      </div>
+      <div class="grid-2" id="analysisGrid"></div>
+    </section>
+
+    <section class="panel section" id="sourcesSection">
+      <div class="section-head">
+        <h2>사용 자료 및 출처</h2>
+        <div class="note">본 시스템은 제1판교테크노밸리와 청라국제업무지구를 같은 기준으로 비교하기 위해 공공데이터, 사용자 정의 경계 polygon, 보조 교통자료를 활용하였다. 실제 분석에 반영된 자료와 미확보·보조자료를 구분하여 아래와 같이 정리하였다.</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>자료명</th>
+              <th>제공기관 / 출처</th>
+              <th>기준연도</th>
+              <th>공간단위</th>
+              <th>본 프로젝트 활용 내용</th>
+              <th>실제 반영 여부</th>
+              <th>비고 / 한계</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>대상지 경계</td>
+              <td>제1판교테크노밸리 boundary polygon / 청라국제업무지구 boundary polygon</td>
+              <td>연구자 직접 작성</td>
+              <td>2023년 분석 기준</td>
+              <td>Polygon</td>
+              <td>분석 범위 설정, 지도 시각화, 면적 계산, 자료 clip 기준</td>
+              <td>실제 반영</td>
+              <td>공식 사업지구 범위를 참고해 사용자가 직접 작성한 연구 경계이며 행정구역 전체와 동일하지 않다. 사용 파일: `data/pangyo_boundary.geojson`, `data/cheongna_boundary.geojson`</td>
+            </tr>
+            <tr>
+              <td>인구사회</td>
+              <td>SGIS 집계구 기반 인구·가구·종사자·사업체 통계</td>
+              <td>통계청 SGIS 통계지리정보서비스</td>
+              <td>2023년</td>
+              <td>집계구</td>
+              <td>총인구, 총가구수, 총종사자수, 총사업체수, 직주비 산출 및 비교</td>
+              <td>실제 반영</td>
+              <td>집계구와 대상지 경계가 완전히 일치하지 않을 수 있어 전처리 배분값으로 해석해야 한다. 현재 화면 주요 값은 판교 총인구 약 357명, 총가구수 약 306가구, 총종사자수 약 48,306명, 총사업체수 약 1,562개, 직주비 135.15 / 청라 총인구 약 4,857명, 총가구수 약 1,827가구, 총종사자수 약 707명, 총사업체수 약 298개, 직주비 0.15이다.</td>
+            </tr>
+            <tr>
+              <td>토지이용 / 용도지역</td>
+              <td>토지이용계획정보 및 용도지역 자료</td>
+              <td>VWorld 또는 KLIP 토지이용계획정보</td>
+              <td>확보 자료 기준</td>
+              <td>필지 또는 용도지역 polygon</td>
+              <td>용도지역도 표시, 용도지역 구성비, 토지이용 혼합도(LUM), 토지이용 특화 해석</td>
+              <td>실제 반영</td>
+              <td>현재 정적 제출본에서는 실제 용도지역 polygon 파일이 존재해 지도와 표에 반영하였다. 다만 새 boundary와의 정합성은 현재 제출본 구조 안에서 확인 가능한 범위로 해석해야 한다. 사용 파일: `data/pangyo_landuse_features.geojson`, `data/cheongna_landuse_features.geojson`</td>
+            </tr>
+            <tr>
+              <td>건축물</td>
+              <td>건축물대장 기본개요 / 건축물 공간자료</td>
+              <td>국토교통부 건축HUB / 전처리된 건축물 GeoJSON</td>
+              <td>확보 자료 기준</td>
+              <td>건축물 / 대지 단위</td>
+              <td>건축물 클릭 속성, 주용도, 건축물 수, footprint 기반 면적 확인</td>
+              <td>실제 반영</td>
+              <td>원본 건축HUB 기본개요 CSV는 확인되지만 연면적·용적률 원필드는 현재 정적 제출본에 직접 포함하지 않았다. 따라서 클릭 패널에는 실제 주용도와 공간자료 기반 면적, 필요 시 추정 연면적만 표시하고 실제 용적률은 미확보로 둔다. 원자료 예시: `pangyo_building_basic_2023.csv`, `cheongna_building_basic_2023.csv`</td>
+            </tr>
+            <tr>
+              <td>도로망 / 공간기반자료</td>
+              <td>수치지도 B010 및 전처리 도로·건축물 GeoJSON</td>
+              <td>국토지리정보원 국토정보플랫폼</td>
+              <td>2023년</td>
+              <td>도로 링크, 건물, 기타 수치지도 레이어</td>
+              <td>도로망, 건축물 공간자료, 도로 길이·도로 밀도 산출</td>
+              <td>실제 반영</td>
+              <td>원본 ZIP/SHP는 정적 제출본에 넣지 않았고, 새 boundary 기준으로 clip된 결과만 사용했다. 원자료 예시: `(B010)수치지도_37709035...zip`, `(B010)수치지도_37607086...zip`</td>
+            </tr>
+            <tr>
+              <td>철도 접근성</td>
+              <td>`subway_network.zip` 기반 node·curve 결과</td>
+              <td>수업 제공 자료 또는 과제 제공 네트워크 자료</td>
+              <td>2023년 분석 기준</td>
+              <td>node-link 네트워크</td>
+              <td>30분·60분 등시간권, 도달 가능 노드 수, 접근성 곡선, 도달 가능 인구·종사자 분석</td>
+              <td>실제 반영</td>
+              <td>정적 제출본에 실제 node 및 curve 파일이 있어 슬라이더와 노드 변화, 접근성 그래프에 반영했다. 사용 파일: `data/pangyo_subway_nodes_60.geojson`, `data/cheongna_subway_nodes_60.geojson`, `data/pangyo_subway_accessibility_curve.json`, `data/cheongna_subway_accessibility_curve.json`</td>
+            </tr>
+            <tr>
+              <td>버스 접근성 보조자료</td>
+              <td>전국 버스정류장 위치정보</td>
+              <td>국토교통부</td>
+              <td>확보 자료 기준</td>
+              <td>버스정류장 point</td>
+              <td>대상지 내부 버스정류장 수, 버스정류장 밀도, 보조 대중교통 접근성 지표 산출</td>
+              <td>실제 반영</td>
+              <td>버스정류장 밀도는 교수님 필수자료가 아니라 사용자가 추가한 보조지표이며, 업무지구 성공 여부를 단독으로 판단하는 핵심 지표는 아니다. 사용 파일: `data/bus_stops.geojson`</td>
+            </tr>
+            <tr>
+              <td>지도 배경</td>
+              <td>OpenStreetMap Tile</td>
+              <td>OpenStreetMap contributors</td>
+              <td>타일 제공 시점</td>
+              <td>지도 타일</td>
+              <td>Leaflet 배경지도</td>
+              <td>실제 반영</td>
+              <td>분석 지표 산출에는 직접 사용하지 않고 위치 확인과 시각화를 위한 배경지도로만 사용한다.</td>
+            </tr>
+            <tr>
+              <td>시각화 라이브러리</td>
+              <td>Leaflet, Chart.js, Turf.js</td>
+              <td>각 오픈소스 라이브러리 공식 CDN</td>
+              <td>접속 시점</td>
+              <td>해당 없음</td>
+              <td>Leaflet은 지도 시각화, Chart.js는 그래프 작성, Turf.js는 polygon 면적 계산</td>
+              <td>실제 반영</td>
+              <td>라이브러리는 분석 원자료가 아니라 시각화 및 계산 도구다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note" style="margin-top:12px">본 시스템은 확보된 자료만 실제값으로 표시하며, 자료가 없거나 새 boundary polygon과 정합성이 확인되지 않은 항목은 데이터 미확보로 처리하였다. 따라서 그래프와 해석은 실제 반영된 지표를 중심으로 작성하였다.</div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+  <script>
+    const REGION = {
+      pangyo: { name: "제1판교테크노밸리", color: "#1d3f70", fill: "#d9e5f7" },
+      cheongna: { name: "청라국제업무지구", color: "#8d4f39", fill: "#f2dfd8" }
+    };
+
+    const LANDUSE_COLOR = {
+      "준주거지역": "#5c7cfa",
+      "중심상업지역": "#d94841",
+      "일반상업지역": "#f08c00",
+      "근린상업지역": "#f6c453",
+      "준공업지역": "#8c6bb1",
+      "자연녹지지역": "#69b36d",
+      "제1종일반주거지역": "#9cc0ff",
+      "제2종일반주거지역": "#7aa2f7",
+      "제3종일반주거지역": "#4f7bdb",
+      "기타": "#9aa7b6"
+    };
+
+    const BUILDING_COLOR = {
+      "업무시설": "#1d3f70",
+      "교육연구시설": "#6f59b7",
+      "근린생활시설": "#6da18a",
+      "판매시설": "#d97b34",
+      "주거시설": "#ca7a7a",
+      "공장": "#7f8da3",
+      "기타": "#95a5b7"
+    };
+
+    const state = {
+      minute: 30,
+      map: null,
+      charts: {},
+      layers: {},
+      data: {
+        metrics: null,
+        boundaries: {},
+        landuse: {},
+        buildings: {},
+        roads: {},
+        bus: null,
+        buildingHubSummary: null,
+        subwayNodes: {},
+        curves: {}
+      },
+      derived: {
+        areaKm2: {},
+        landuse: {},
+        buildings: {},
+        roads: {},
+        bus: {},
+        iso: {}
+      }
+    };
+
+    function byId(id) {
+      return document.getElementById(id);
+    }
+
+    function fetchJson(path) {
+      return fetch(path).then((response) => {
+        if (!response.ok) throw new Error(path + " load failed");
+        return response.json();
+      }).catch(() => null);
+    }
+
+    function fmt(value, digits = 2) {
+      const n = Number(value);
+      return Number.isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: digits, minimumFractionDigits: digits }) : "데이터 미확보";
+    }
+
+    function approx(value, unit) {
+      const n = Number(value);
+      if (!Number.isFinite(n)) return "데이터 미확보";
+      const rounded = Math.round(n).toLocaleString("ko-KR");
+      const suffix = { people: "명", households: "가구", businesses: "개", nodes: "개", stops: "개", buildings: "동" }[unit] || "";
+      return "약 " + rounded + suffix;
+    }
+
+    function ratioText(value) {
+      const n = Number(value);
+      return Number.isFinite(n) ? n.toFixed(2) : "데이터 미확보";
+    }
+
+    function areaText(value) {
+      const n = Number(value);
+      return Number.isFinite(n) ? n.toFixed(3) + " km²" : "데이터 미확보";
+    }
+
+    function densityText(value) {
+      const n = Number(value);
+      return Number.isFinite(n) ? n.toFixed(2) + " /km²" : "데이터 미확보";
+    }
+
+    function normalizePair(a, b) {
+      const x = Number(a) || 0;
+      const y = Number(b) || 0;
+      const max = Math.max(x, y);
+      if (!max) return [0, 0];
+      return [x / max * 100, y / max * 100];
+    }
+
+    function propsOf(feature) {
+      return feature && feature.properties ? feature.properties : {};
+    }
+
+    function firstDefined(values) {
+      for (const value of values) {
+        if (value !== undefined && value !== null && value !== "") return value;
+      }
+      return null;
+    }
+
+    function buildingHubSample(region) {
+      const summary = state.data.buildingHubSummary && state.data.buildingHubSummary[region];
+      if (!summary || !summary.sample_rows || !summary.sample_rows.length) return "건축물HUB 기본개요 요약 샘플 미확보";
+      const sample = summary.sample_rows[0];
+      return (
+        "건축물HUB 요약 샘플: " +
+        (sample["대지위치"] || "미상") +
+        " / " +
+        (sample["건물명"] || "건물명 미상") +
+        " / " +
+        (sample["대장종류코드명"] || "대장종류 미상")
+      );
+    }
+
+    function zoneName(feature) {
+      const p = propsOf(feature);
+      return firstDefined([p.zone_name, p.dgm_nm, p.atrb_se, p.mlsfc_cl]) || "기타";
+    }
+
+    function buildingUse(feature) {
+      const p = propsOf(feature);
+      const use = firstDefined([p["용도"], p.use, p.main_use, p.mainUse]);
+      if (!use) return "기타";
+      if (String(use).includes("업무")) return "업무시설";
+      if (String(use).includes("교육") || String(use).includes("연구")) return "교육연구시설";
+      if (String(use).includes("근린")) return "근린생활시설";
+      if (String(use).includes("판매")) return "판매시설";
+      if (String(use).includes("주거") || String(use).includes("아파트") || String(use).includes("오피스텔")) return "주거시설";
+      if (String(use).includes("공장")) return "공장";
+      return String(use);
+    }
+
+    function buildingName(feature) {
+      const p = propsOf(feature);
+      return firstDefined([p["명칭"], p.name, p.building_name]) || "미상";
+    }
+
+    function floorsOf(feature) {
+      const p = propsOf(feature);
+      const value = firstDefined([p["층수"], p.floors, p.floor_count]);
+      const n = Number(value);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function roadName(feature) {
+      const p = propsOf(feature);
+      return firstDefined([p["명칭"], p.name, p["도로명"]]) || "미상";
+    }
+
+    function roadClass(feature) {
+      const p = propsOf(feature);
+      return firstDefined([p["도로구분"], p.road_type, p.highway]) || "미상";
+    }
+
+    function lineClipToBoundary(lineFeature, boundaryFeature) {
+      try {
+        const boundaryLine = turf.polygonToLine(boundaryFeature);
+        const split = turf.lineSplit(lineFeature, boundaryLine);
+        if (!split || !split.features || !split.features.length) return [];
+        return split.features.filter((segment) => {
+          try {
+            const len = turf.length(segment, { units: "kilometers" });
+            if (!len) return false;
+            const midpoint = turf.along(segment, len / 2, { units: "kilometers" });
+            return turf.booleanPointInPolygon(midpoint, boundaryFeature);
+          } catch (_) {
+            return false;
+          }
+        });
+      } catch (_) {
+        return turf.booleanIntersects(lineFeature, boundaryFeature) ? [lineFeature] : [];
+      }
+    }
+
+    function clipPolygonToBoundary(feature, boundary) {
+      try {
+        if (turf.booleanWithin(feature, boundary)) return feature;
+      } catch (_) {}
+      try {
+        if (!turf.booleanIntersects(feature, boundary)) return null;
+      } catch (_) {
+        return null;
+      }
+      try {
+        return turf.intersect(feature, boundary);
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function metric(region, key) {
+      const root = state.data.metrics && state.data.metrics.regions && state.data.metrics.regions[region];
+      return root && root.metrics ? root.metrics[key] : null;
+    }
+
+    function curvePoint(region, minute) {
+      const curve = state.data.curves[region] && state.data.curves[region].curve ? state.data.curves[region].curve : [];
+      const exact = curve.find((item) => Number(item.minute) === minute);
+      if (exact) return exact;
+      const filtered = curve.filter((item) => Number(item.minute) <= minute);
+      return filtered.length ? filtered[filtered.length - 1] : null;
+    }
+
+    function computeAreas() {
+      ["pangyo", "cheongna"].forEach((region) => {
+        const fc = state.data.boundaries[region];
+        const feature = fc && fc.features && fc.features[0] ? fc.features[0] : null;
+        state.derived.areaKm2[region] = feature ? turf.area(feature) / 1000000 : null;
+      });
+    }
+
+    function computeLanduse(region) {
+      const source = state.data.landuse[region];
+      const boundary = state.data.boundaries[region] && state.data.boundaries[region].features[0];
+      if (!source || !boundary) {
+        state.derived.landuse[region] = null;
+        return;
+      }
+
+      const features = [];
+      const areaByZone = {};
+      let totalArea = 0;
+
+      source.features.forEach((feature) => {
+        const clipped = clipPolygonToBoundary(feature, boundary);
+        if (!clipped) return;
+        const areaKm2 = turf.area(clipped) / 1000000;
+        if (!areaKm2) return;
+        const zone = zoneName(feature);
+        clipped.properties = Object.assign({}, propsOf(feature), {
+          region,
+          zone_label: zone,
+          clip_area_km2: areaKm2
+        });
+        features.push(clipped);
+        areaByZone[zone] = (areaByZone[zone] || 0) + areaKm2;
+        totalArea += areaKm2;
+      });
+
+      const boundaryArea = state.derived.areaKm2[region] || totalArea;
+      const shares = Object.entries(areaByZone).map(([name, value]) => ({
+        name,
+        areaKm2: value,
+        share: boundaryArea ? value / boundaryArea * 100 : 0
+      })).sort((a, b) => b.share - a.share);
+
+      let lum = null;
+      if (shares.length > 1) {
+        const valid = shares.filter((item) => item.share > 0);
+        const sum = valid.reduce((acc, item) => {
+          const p = item.share / 100;
+          return acc + p * Math.log(p);
+        }, 0);
+        lum = valid.length > 1 ? -sum / Math.log(valid.length) : 0;
+      }
+
+      state.derived.landuse[region] = {
+        features: { type: "FeatureCollection", features },
+        shares,
+        totalAreaKm2: totalArea,
+        lum
+      };
+    }
+
+    function computeBuildings(region) {
+      const source = state.data.buildings[region];
+      const boundary = state.data.boundaries[region] && state.data.boundaries[region].features[0];
+      if (!source || !boundary) {
+        state.derived.buildings[region] = null;
+        return;
+      }
+
+      const features = [];
+      const useByCount = {};
+      let buildingCount = 0;
+      let footprintM2 = 0;
+      let estimatedGfaM2 = 0;
+
+      source.features.forEach((feature) => {
+        const clipped = clipPolygonToBoundary(feature, boundary);
+        if (!clipped) return;
+        const area = turf.area(clipped);
+        if (!area) return;
+        const use = buildingUse(feature);
+        const floors = floorsOf(feature);
+        const estimated = Number.isFinite(floors) && floors > 0 ? area * floors : null;
+        clipped.properties = Object.assign({}, propsOf(feature), {
+          region,
+          use_label: use,
+          footprint_m2: area,
+          estimated_gfa_m2: estimated
+        });
+        features.push(clipped);
+        buildingCount += 1;
+        footprintM2 += area;
+        if (estimated) estimatedGfaM2 += estimated;
+        useByCount[use] = (useByCount[use] || 0) + 1;
+      });
+
+      const areaM2 = (state.derived.areaKm2[region] || 0) * 1000000;
+      state.derived.buildings[region] = {
+        features: { type: "FeatureCollection", features },
+        count: buildingCount,
+        footprintM2,
+        estimatedGfaM2: estimatedGfaM2 || null,
+        buildingCoverageRatio: areaM2 ? footprintM2 / areaM2 * 100 : null,
+        topUses: Object.entries(useByCount).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count)
+      };
+    }
+
+    function computeRoads(region) {
+      const source = state.data.roads[region];
+      const boundary = state.data.boundaries[region] && state.data.boundaries[region].features[0];
+      if (!source || !boundary) {
+        state.derived.roads[region] = null;
+        return;
+      }
+
+      const features = [];
+      let totalLengthKm = 0;
+
+      source.features.forEach((feature) => {
+        const segments = lineClipToBoundary(feature, boundary);
+        segments.forEach((segment) => {
+          const len = turf.length(segment, { units: "kilometers" });
+          if (!len) return;
+          segment.properties = Object.assign({}, propsOf(feature), {
+            region,
+            segment_km: len
+          });
+          features.push(segment);
+          totalLengthKm += len;
+        });
+      });
+
+      state.derived.roads[region] = {
+        features: { type: "FeatureCollection", features },
+        totalLengthKm,
+        densityKmPerKm2: state.derived.areaKm2[region] ? totalLengthKm / state.derived.areaKm2[region] : null
+      };
+    }
+
+    function computeBus(region) {
+      const source = state.data.bus;
+      const boundary = state.data.boundaries[region] && state.data.boundaries[region].features[0];
+      if (!source || !boundary) {
+        state.derived.bus[region] = null;
+        return;
+      }
+
+      const features = source.features.filter((feature) => {
+        try {
+          return turf.booleanPointInPolygon(feature, boundary);
+        } catch (_) {
+          return false;
+        }
+      }).map((feature) => ({
+        type: "Feature",
+        geometry: feature.geometry,
+        properties: Object.assign({}, propsOf(feature), { region })
+      }));
+
+      state.derived.bus[region] = {
+        features: { type: "FeatureCollection", features },
+        count: features.length,
+        density: state.derived.areaKm2[region] ? features.length / state.derived.areaKm2[region] : null
+      };
+    }
+
+    function filteredNodes(region) {
+      const source = state.data.subwayNodes[region];
+      if (!source || !source.features) return [];
+      return source.features.filter((feature) => Number(propsOf(feature).travel_minutes) <= state.minute);
+    }
+
+    function computeIso(region) {
+      const nodes = filteredNodes(region);
+      if (!nodes.length) {
+        state.derived.iso[region] = null;
+        return;
+      }
+      let geometry = null;
+      try {
+        if (nodes.length >= 3) {
+          geometry = turf.convex({ type: "FeatureCollection", features: nodes });
+        }
+      } catch (_) {}
+      if (!geometry) {
+        const center = turf.center({ type: "FeatureCollection", features: nodes });
+        geometry = turf.buffer(center, 0.5 + state.minute * 0.03, { units: "kilometers" });
+      }
+      geometry.properties = { region };
+      state.derived.iso[region] = geometry;
+    }
+
+    function computeDerived() {
+      computeAreas();
+      ["pangyo", "cheongna"].forEach((region) => {
+        computeLanduse(region);
+        computeBuildings(region);
+        computeRoads(region);
+        computeBus(region);
+        computeIso(region);
+      });
+    }
+
+    function access(region) {
+      const point = curvePoint(region, state.minute);
+      return {
+        nodes: point ? point.reachable_nodes : null,
+        population: point ? point.accessible_population : null,
+        workers: point ? point.accessible_workers : null
+      };
+    }
+
+    function renderMetricCards() {
+      const p = access("pangyo");
+      const c = access("cheongna");
+      const cards = [
+        ["판교 경계 면적", areaText(state.derived.areaKm2.pangyo), "Turf.js polygon 계산"],
+        ["청라 경계 면적", areaText(state.derived.areaKm2.cheongna), "Turf.js polygon 계산"],
+        ["판교 총종사자수", approx(metric("pangyo", "totalWorkers"), "people"), "확정 입력값"],
+        ["청라 총종사자수", approx(metric("cheongna", "totalWorkers"), "people"), "확정 입력값"],
+        ["판교 직주비", ratioText(metric("pangyo", "jobHousingRatio")), "종사자수 / 상주인구"],
+        ["청라 직주비", ratioText(metric("cheongna", "jobHousingRatio")), "종사자수 / 상주인구"],
+        ["판교 " + state.minute + "분 도달 노드", approx(p.nodes, "nodes"), "실제 지하철 노드 기준"],
+        ["청라 " + state.minute + "분 도달 노드", approx(c.nodes, "nodes"), "실제 지하철 노드 기준"],
+        ["판교 버스정류장 밀도", densityText(state.derived.bus.pangyo && state.derived.bus.pangyo.density), "보조 대중교통 지표"],
+        ["청라 버스정류장 밀도", densityText(state.derived.bus.cheongna && state.derived.bus.cheongna.density), "보조 대중교통 지표"],
+        ["판교 LUM", ratioText(state.derived.landuse.pangyo && state.derived.landuse.pangyo.lum), "용도지역 혼합도"],
+        ["청라 LUM", ratioText(state.derived.landuse.cheongna && state.derived.landuse.cheongna.lum), "용도지역 혼합도"]
+      ];
+
+      byId("metricGrid").innerHTML = cards.map(([label, value, note]) => (
+        '<div class="metric-card"><span class="kicker">' + label + '</span><div class="big">' + value + '</div><div class="small">' + note + '</div></div>'
+      )).join("");
+    }
+
+    function diffText(a, b, mode) {
+      const x = Number(a);
+      const y = Number(b);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) return "데이터 미확보";
+      if (mode === "ratio") return y ? (x / y).toFixed(1) + "배" : "비교 불가";
+      return (x - y).toFixed(2);
+    }
+
+    function winner(a, b, reverse = false) {
+      const x = Number(a);
+      const y = Number(b);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) return "판단 유보";
+      if (x === y) return "동일";
+      if (!reverse) return x > y ? "판교" : "청라";
+      return x < y ? "판교" : "청라";
+    }
+
+    function topLanduseText(region) {
+      const item = state.derived.landuse[region];
+      if (!item || !item.shares.length) return "데이터 미확보";
+      return item.shares.slice(0, 3).map((row) => row.name + " " + row.share.toFixed(1) + "%").join(", ");
+    }
+
+    function renderTable() {
+      const pA = access("pangyo");
+      const cA = access("cheongna");
+      const rows = [
+        ["경계 면적", areaText(state.derived.areaKm2.pangyo), areaText(state.derived.areaKm2.cheongna), diffText(state.derived.areaKm2.pangyo, state.derived.areaKm2.cheongna, "value"), winner(state.derived.areaKm2.pangyo, state.derived.areaKm2.cheongna), "사용자 정의 boundary polygon 기준 면적"],
+        ["총인구", approx(metric("pangyo", "totalPopulation"), "people"), approx(metric("cheongna", "totalPopulation"), "people"), diffText(metric("pangyo", "totalPopulation"), metric("cheongna", "totalPopulation"), "value"), winner(metric("pangyo", "totalPopulation"), metric("cheongna", "totalPopulation")), "총인구는 업무지구 성공 판단에서 해석 주의가 필요하다."],
+        ["총가구수", approx(metric("pangyo", "totalHouseholds"), "households"), approx(metric("cheongna", "totalHouseholds"), "households"), diffText(metric("pangyo", "totalHouseholds"), metric("cheongna", "totalHouseholds"), "value"), winner(metric("pangyo", "totalHouseholds"), metric("cheongna", "totalHouseholds")), "가구수는 배후 주거 성격을 보여주는 참고 지표다."],
+        ["총종사자수", approx(metric("pangyo", "totalWorkers"), "people"), approx(metric("cheongna", "totalWorkers"), "people"), diffText(metric("pangyo", "totalWorkers"), metric("cheongna", "totalWorkers"), "ratio"), winner(metric("pangyo", "totalWorkers"), metric("cheongna", "totalWorkers")), "판교 총종사자수는 청라보다 약 68.3배 높아 고용 집적이 뚜렷하다."],
+        ["총사업체수", approx(metric("pangyo", "totalBusinesses"), "businesses"), approx(metric("cheongna", "totalBusinesses"), "businesses"), diffText(metric("pangyo", "totalBusinesses"), metric("cheongna", "totalBusinesses"), "ratio"), winner(metric("pangyo", "totalBusinesses"), metric("cheongna", "totalBusinesses")), "판교 총사업체수는 청라보다 약 5.2배 높다."],
+        ["직주비", ratioText(metric("pangyo", "jobHousingRatio")), ratioText(metric("cheongna", "jobHousingRatio")), diffText(metric("pangyo", "jobHousingRatio"), metric("cheongna", "jobHousingRatio"), "ratio"), winner(metric("pangyo", "jobHousingRatio"), metric("cheongna", "jobHousingRatio")), "판교 직주비는 청라보다 매우 높아 업무·고용 중심성이 강하다."],
+        [state.minute + "분 도달 노드 수", approx(pA.nodes, "nodes"), approx(cA.nodes, "nodes"), diffText(pA.nodes, cA.nodes, "ratio"), winner(pA.nodes, cA.nodes), "실제 지하철 노드 자료 기준 도달 범위 비교다."],
+        [state.minute + "분 도달 가능 인구", approx(pA.population, "people"), approx(cA.population, "people"), diffText(pA.population, cA.population, "ratio"), winner(pA.population, cA.population), "핵심역 기준 통근권 인구 접근성 비교다."],
+        [state.minute + "분 도달 가능 종사자", approx(pA.workers, "people"), approx(cA.workers, "people"), diffText(pA.workers, cA.workers, "ratio"), winner(pA.workers, cA.workers), "핵심역 기준 노동시장 접근성 비교다."],
+        ["버스정류장 수", approx(state.derived.bus.pangyo && state.derived.bus.pangyo.count, "stops"), approx(state.derived.bus.cheongna && state.derived.bus.cheongna.count, "stops"), diffText(state.derived.bus.pangyo && state.derived.bus.pangyo.count, state.derived.bus.cheongna && state.derived.bus.cheongna.count, "value"), winner(state.derived.bus.pangyo && state.derived.bus.pangyo.count, state.derived.bus.cheongna && state.derived.bus.cheongna.count), "버스정류장 수는 보조 대중교통 접근성 지표다."],
+        ["버스정류장 밀도", densityText(state.derived.bus.pangyo && state.derived.bus.pangyo.density), densityText(state.derived.bus.cheongna && state.derived.bus.cheongna.density), diffText(state.derived.bus.pangyo && state.derived.bus.pangyo.density, state.derived.bus.cheongna && state.derived.bus.cheongna.density, "ratio"), winner(state.derived.bus.pangyo && state.derived.bus.pangyo.density, state.derived.bus.cheongna && state.derived.bus.cheongna.density), "보조 지표이며 단독으로 성공 여부를 판단하지 않는다."],
+        ["토지이용 혼합도 LUM", ratioText(state.derived.landuse.pangyo && state.derived.landuse.pangyo.lum), ratioText(state.derived.landuse.cheongna && state.derived.landuse.cheongna.lum), diffText(state.derived.landuse.pangyo && state.derived.landuse.pangyo.lum, state.derived.landuse.cheongna && state.derived.landuse.cheongna.lum, "value"), winner(state.derived.landuse.pangyo && state.derived.landuse.pangyo.lum, state.derived.landuse.cheongna && state.derived.landuse.cheongna.lum), "용도지역 혼합도는 토지이용 구조의 다양성을 본다."],
+        ["용도지역 상위 구성", topLanduseText("pangyo"), topLanduseText("cheongna"), "-", "판단 유보", "현재 polygon과 교차한 용도지역 상위 구성비다."],
+        ["건축물 수", approx(state.derived.buildings.pangyo && state.derived.buildings.pangyo.count, "buildings"), approx(state.derived.buildings.cheongna && state.derived.buildings.cheongna.count, "buildings"), diffText(state.derived.buildings.pangyo && state.derived.buildings.pangyo.count, state.derived.buildings.cheongna && state.derived.buildings.cheongna.count, "ratio"), winner(state.derived.buildings.pangyo && state.derived.buildings.pangyo.count, state.derived.buildings.cheongna && state.derived.buildings.cheongna.count), "건축물 footprint 기반 공간 집적도 참고값이다."],
+        ["도로 밀도", densityText(state.derived.roads.pangyo && state.derived.roads.pangyo.densityKmPerKm2), densityText(state.derived.roads.cheongna && state.derived.roads.cheongna.densityKmPerKm2), diffText(state.derived.roads.pangyo && state.derived.roads.pangyo.densityKmPerKm2, state.derived.roads.cheongna && state.derived.roads.cheongna.densityKmPerKm2, "ratio"), winner(state.derived.roads.pangyo && state.derived.roads.pangyo.densityKmPerKm2, state.derived.roads.cheongna && state.derived.roads.cheongna.densityKmPerKm2), "OSM 도로 레이어를 현재 polygon 기준으로 잘라 계산했다."]
+      ];
+
+      byId("compareBody").innerHTML = rows.map((row) => (
+        "<tr>" + row.map((col) => "<td>" + col + "</td>").join("") + "</tr>"
+      )).join("");
+    }
+
+    function destroyChart(name) {
+      if (state.charts[name]) {
+        state.charts[name].destroy();
+        state.charts[name] = null;
+      }
+    }
+
+    function renderCharts() {
+      const pA = access("pangyo");
+      const cA = access("cheongna");
+
+      ["core", "socio", "curve", "transport", "landuse", "urban"].forEach(destroyChart);
+
+      const coreNorm = [
+        normalizePair(metric("pangyo", "totalWorkers"), metric("cheongna", "totalWorkers")),
+        normalizePair(metric("pangyo", "totalBusinesses"), metric("cheongna", "totalBusinesses")),
+        normalizePair(metric("pangyo", "jobHousingRatio"), metric("cheongna", "jobHousingRatio"))
+      ];
+
+      state.charts.core = new Chart(byId("coreChart"), {
+        type: "bar",
+        data: {
+          labels: ["총종사자수", "총사업체수", "직주비"],
+          datasets: [
+            { label: "판교", data: coreNorm.map((item) => item[0]), backgroundColor: REGION.pangyo.color },
+            { label: "청라", data: coreNorm.map((item) => item[1]), backgroundColor: REGION.cheongna.color }
+          ]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+      });
+
+      const socioNorm = [
+        normalizePair(metric("pangyo", "totalPopulation"), metric("cheongna", "totalPopulation")),
+        normalizePair(metric("pangyo", "totalWorkers"), metric("cheongna", "totalWorkers")),
+        normalizePair(metric("pangyo", "totalBusinesses"), metric("cheongna", "totalBusinesses"))
+      ];
+
+      state.charts.socio = new Chart(byId("socioChart"), {
+        type: "bar",
+        data: {
+          labels: ["총인구", "총종사자수", "총사업체수"],
+          datasets: [
+            { label: "판교", data: socioNorm.map((item) => item[0]), backgroundColor: "#5c7cfa" },
+            { label: "청라", data: socioNorm.map((item) => item[1]), backgroundColor: "#d97b34" }
+          ]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+      });
+
+      state.charts.curve = new Chart(byId("curveChart"), {
+        type: "line",
+        data: {
+          labels: [10, 20, 30, 40, 50, 60],
+          datasets: [
+            {
+              label: "판교 도달 노드",
+              data: [10, 20, 30, 40, 50, 60].map((minute) => curvePoint("pangyo", minute)?.reachable_nodes || 0),
+              borderColor: REGION.pangyo.color,
+              backgroundColor: REGION.pangyo.color,
+              tension: 0.25
+            },
+            {
+              label: "청라 도달 노드",
+              data: [10, 20, 30, 40, 50, 60].map((minute) => curvePoint("cheongna", minute)?.reachable_nodes || 0),
+              borderColor: REGION.cheongna.color,
+              backgroundColor: REGION.cheongna.color,
+              tension: 0.25
+            }
+          ]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true } } }
+      });
+
+      const busNorm = normalizePair(state.derived.bus.pangyo && state.derived.bus.pangyo.density, state.derived.bus.cheongna && state.derived.bus.cheongna.density);
+      const roadNorm = normalizePair(state.derived.roads.pangyo && state.derived.roads.pangyo.densityKmPerKm2, state.derived.roads.cheongna && state.derived.roads.cheongna.densityKmPerKm2);
+      const nodeNorm = normalizePair(pA.nodes, cA.nodes);
+      const workerNorm = normalizePair(pA.workers, cA.workers);
+
+      state.charts.transport = new Chart(byId("transportChart"), {
+        type: "bar",
+        data: {
+          labels: ["버스정류장 밀도", "도로 밀도", state.minute + "분 도달 노드", state.minute + "분 도달 종사자"],
+          datasets: [
+            { label: "판교", data: [busNorm[0], roadNorm[0], nodeNorm[0], workerNorm[0]], backgroundColor: "#6da18a" },
+            { label: "청라", data: [busNorm[1], roadNorm[1], nodeNorm[1], workerNorm[1]], backgroundColor: "#cb7a7a" }
+          ]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+      });
+
+      const landuseLabels = Array.from(new Set(
+        []
+          .concat((state.derived.landuse.pangyo?.shares || []).slice(0, 4).map((item) => item.name))
+          .concat((state.derived.landuse.cheongna?.shares || []).slice(0, 4).map((item) => item.name))
+      ));
+
+      state.charts.landuse = new Chart(byId("landuseChart"), {
+        type: "bar",
+        data: {
+          labels: landuseLabels,
+          datasets: [
+            {
+              label: "판교 구성비",
+              data: landuseLabels.map((name) => {
+                const hit = (state.derived.landuse.pangyo?.shares || []).find((item) => item.name === name);
+                return hit ? hit.share : 0;
+              }),
+              backgroundColor: REGION.pangyo.color
+            },
+            {
+              label: "청라 구성비",
+              data: landuseLabels.map((name) => {
+                const hit = (state.derived.landuse.cheongna?.shares || []).find((item) => item.name === name);
+                return hit ? hit.share : 0;
+              }),
+              backgroundColor: REGION.cheongna.color
+            }
+          ]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+      });
+
+      const urbanNorm = [
+        normalizePair(state.derived.landuse.pangyo?.lum, state.derived.landuse.cheongna?.lum),
+        normalizePair(state.derived.buildings.pangyo?.buildingCoverageRatio, state.derived.buildings.cheongna?.buildingCoverageRatio),
+        normalizePair(state.derived.buildings.pangyo?.count, state.derived.buildings.cheongna?.count)
+      ];
+
+      state.charts.urban = new Chart(byId("urbanChart"), {
+        type: "bar",
+        data: {
+          labels: ["LUM", "건축 footprint 비율", "건축물 수"],
+          datasets: [
+            { label: "판교", data: urbanNorm.map((item) => item[0]), backgroundColor: "#556ee6" },
+            { label: "청라", data: urbanNorm.map((item) => item[1]), backgroundColor: "#f08c00" }
+          ]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+      });
+    }
+
+    function renderAnalysis() {
+      const pA = access("pangyo");
+      const cA = access("cheongna");
+      const cards = [
+        {
+          title: "핵심 차이 해석",
+          text: "판교는 총종사자수 " + approx(metric("pangyo", "totalWorkers"), "people") + ", 총사업체수 " + approx(metric("pangyo", "totalBusinesses"), "businesses") + ", 직주비 " + ratioText(metric("pangyo", "jobHousingRatio")) + "로 청라보다 높다. 이는 판교가 업무·고용 중심성이 강한 업무지구라는 점을 보여준다."
+        },
+        {
+          title: "인구·고용 구조 해석",
+          text: "청라는 총인구 " + approx(metric("cheongna", "totalPopulation"), "people") + "로 판교보다 크지만, 총종사자수와 총사업체수는 낮다. 총인구가 높다는 사실만으로 업무지구 성공을 판단할 수 없으며, 고용 집적과 사업체 활동을 함께 봐야 한다."
+        },
+        {
+          title: "교통 접근성 해석",
+          text: state.minute + "분 기준 도달 노드 수는 판교 " + approx(pA.nodes, "nodes") + ", 청라 " + approx(cA.nodes, "nodes") + "다. 반면 도달 가능 인구와 종사자는 청라가 더 크게 나타나는 구간이 있어, 핵심역이 연결하는 광역 통근권의 규모는 별도로 해석할 필요가 있다."
+        },
+        {
+          title: "버스정류장 보조지표 해석",
+          text: "버스정류장 밀도는 판교 " + densityText(state.derived.bus.pangyo?.density) + ", 청라 " + densityText(state.derived.bus.cheongna?.density) + "다. 이는 보조 대중교통 접근성 지표이며, 업무지구 성공 여부를 단독으로 판정하는 핵심 지표는 아니다."
+        },
+        {
+          title: "토지이용 및 용도지역 해석",
+          text: "현재 polygon 기준 LUM은 판교 " + ratioText(state.derived.landuse.pangyo?.lum) + ", 청라 " + ratioText(state.derived.landuse.cheongna?.lum) + "다. 상위 용도지역 구성은 판교 " + topLanduseText("pangyo") + ", 청라 " + topLanduseText("cheongna") + "로 나타난다."
+        },
+        {
+          title: "종합 판단",
+          text: "판교는 종사자수, 사업체수, 직주비에서 청라보다 압도적으로 높아 성공적인 업무지구로 해석할 수 있다. 청라는 계획상 국제업무지구이지만, 확보된 고용·사업체 지표 기준으로는 업무기능 활성화가 상대적으로 낮은 비교 사례로 보인다."
+        },
+        {
+          title: "데이터 한계와 출처",
+          text: "대상지 경계는 사용자가 직접 작성한 polygon 기준이다. SGIS 통계는 현재 정적 제출본의 확정 입력값 파일을 사용하며, 집계구와 대상지 경계가 완전히 일치하지 않을 수 있다. 용도지역, 건축물, 도로, 버스정류장, 지하철 노드는 실제 GeoJSON 파일을 현재 polygon 기준으로 다시 계산했다."
+        }
+      ];
+
+      byId("analysisGrid").innerHTML = cards.map((item) => (
+        '<div class="cell"><h3>' + item.title + '</h3><div class="note">' + item.text + '</div></div>'
+      )).join("");
+    }
+
+    function setFeaturePanel(html) {
+      byId("featurePanel").innerHTML = html;
+    }
+
+    function renderAccessSummary() {
+      const p = access("pangyo");
+      const c = access("cheongna");
+      byId("accessSummary").innerHTML =
+        '<div class="small">현재 선택 시간대 기준 실제 지하철 노드·접근성 곡선 요약</div>' +
+        '<div style="margin-top:10px"><strong>판교</strong><br>도달 노드 ' + approx(p.nodes, "nodes") + '<br>도달 가능 인구 ' + approx(p.population, "people") + '<br>도달 가능 종사자 ' + approx(p.workers, "people") + '</div>' +
+        '<div style="margin-top:12px"><strong>청라</strong><br>도달 노드 ' + approx(c.nodes, "nodes") + '<br>도달 가능 인구 ' + approx(c.population, "people") + '<br>도달 가능 종사자 ' + approx(c.workers, "people") + '</div>';
+    }
+
+    function boundaryLayer(region) {
+      return L.geoJSON(state.data.boundaries[region], {
+        style: {
+          color: REGION[region].color,
+          fillColor: REGION[region].fill,
+          fillOpacity: 0.16,
+          weight: 3
+        },
+        onEachFeature(feature, layer) {
+          const area = turf.area(feature) / 1000000;
+          layer.bindPopup(
+            "<strong>" + REGION[region].name + "</strong><br>" +
+            "면적: " + area.toFixed(3) + " km²<br>" +
+            "기준연도: 2023년"
+          );
+          layer.on("click", () => {
+            setFeaturePanel(
+              "<strong>" + REGION[region].name + "</strong><br>" +
+              "면적: " + area.toFixed(3) + " km²<br>" +
+              "설명: 사용자 정의 boundary polygon 기준 면적"
+            );
+          });
+        }
+      });
+    }
+
+    function landuseLayer() {
+      const merged = {
+        type: "FeatureCollection",
+        features: []
+          .concat(state.derived.landuse.pangyo ? state.derived.landuse.pangyo.features.features : [])
+          .concat(state.derived.landuse.cheongna ? state.derived.landuse.cheongna.features.features : [])
+      };
+      return L.geoJSON(merged, {
+        style: (feature) => ({
+          color: "#5b6777",
+          weight: 0.6,
+          fillColor: LANDUSE_COLOR[feature.properties.zone_label] || LANDUSE_COLOR["기타"],
+          fillOpacity: 0.4
+        }),
+        onEachFeature(feature, layer) {
+          const region = feature.properties.region;
+          const share = state.derived.areaKm2[region] ? feature.properties.clip_area_km2 / state.derived.areaKm2[region] * 100 : null;
+          const html =
+            "<strong>" + REGION[region].name + "</strong><br>" +
+            "용도지역: " + feature.properties.zone_label + "<br>" +
+            "면적: " + feature.properties.clip_area_km2.toFixed(4) + " km²<br>" +
+            "구성비: " + (share ? share.toFixed(2) : "0.00") + "%";
+          layer.bindPopup(html);
+          layer.on("click", () => setFeaturePanel(html));
+        }
+      });
+    }
+
+    function buildingLayer() {
+      const merged = {
+        type: "FeatureCollection",
+        features: []
+          .concat(state.derived.buildings.pangyo ? state.derived.buildings.pangyo.features.features : [])
+          .concat(state.derived.buildings.cheongna ? state.derived.buildings.cheongna.features.features : [])
+      };
+      return L.geoJSON(merged, {
+        style: (feature) => ({
+          color: "#4f5f73",
+          weight: 0.5,
+          fillColor: BUILDING_COLOR[feature.properties.use_label] || BUILDING_COLOR["기타"],
+          fillOpacity: 0.58
+        }),
+        onEachFeature(feature, layer) {
+          const region = feature.properties.region;
+          const floors = floorsOf(feature);
+          const sourceNote = buildingHubSample(region);
+          const html =
+            "<strong>" + REGION[region].name + "</strong><br>" +
+            "건물명: " + buildingName(feature) + "<br>" +
+            "주용도: " + feature.properties.use_label + "<br>" +
+            "건물종류: " + (firstDefined([feature.properties["종류"], feature.properties.kind]) || "미상") + "<br>" +
+            "층수: " + (Number.isFinite(floors) ? floors : "데이터 미확보") + "<br>" +
+            "건물 바닥면적: " + fmt(feature.properties.footprint_m2, 1) + " m²<br>" +
+            "연면적(현재 제출본): " + (feature.properties.estimated_gfa_m2 ? "추정 " + fmt(feature.properties.estimated_gfa_m2, 1) + " m²" : "데이터 미확보") + "<br>" +
+            "용적률(현재 제출본): 데이터 미확보<br>" +
+            "자료 출처: 건축물 GeoJSON / 건축물HUB 기본개요 참고<br>" +
+            "비고: " + sourceNote;
+          layer.bindPopup(html);
+          layer.on("click", () => setFeaturePanel(html));
+        }
+      });
+    }
+
+    function roadLayer() {
+      const merged = {
+        type: "FeatureCollection",
+        features: []
+          .concat(state.derived.roads.pangyo ? state.derived.roads.pangyo.features.features : [])
+          .concat(state.derived.roads.cheongna ? state.derived.roads.cheongna.features.features : [])
+      };
+      return L.geoJSON(merged, {
+        style: (feature) => ({
+          color: feature.properties.region === "pangyo" ? "#4b668c" : "#9b654f",
+          weight: 2.2,
+          opacity: 0.8
+        }),
+        onEachFeature(feature, layer) {
+          const region = feature.properties.region;
+          const html =
+            "<strong>" + REGION[region].name + "</strong><br>" +
+            "도로명: " + roadName(feature) + "<br>" +
+            "도로구분: " + roadClass(feature) + "<br>" +
+            "차로수: " + (firstDefined([feature.properties["차로수"], feature.properties.lanes]) || "미상") + "<br>" +
+            "도로폭: " + (firstDefined([feature.properties["도로폭"], feature.properties.width]) || "미상") + "<br>" +
+            "현재 polygon 내부 길이: " + fmt(feature.properties.segment_km, 3) + " km";
+          layer.bindPopup(html);
+          layer.on("click", () => setFeaturePanel(html));
+        }
+      });
+    }
+
+    function busLayer() {
+      const merged = {
+        type: "FeatureCollection",
+        features: []
+          .concat(state.derived.bus.pangyo ? state.derived.bus.pangyo.features.features : [])
+          .concat(state.derived.bus.cheongna ? state.derived.bus.cheongna.features.features : [])
+      };
+      return L.geoJSON(merged, {
+        pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
+          radius: 4,
+          color: feature.properties.region === "pangyo" ? REGION.pangyo.color : REGION.cheongna.color,
+          fillColor: "#d3a640",
+          fillOpacity: 0.95,
+          weight: 1
+        }),
+        onEachFeature(feature, layer) {
+          const region = feature.properties.region;
+          const html =
+            "<strong>" + REGION[region].name + "</strong><br>" +
+            "버스정류장 ID: " + (feature.properties.stop_id || feature.properties.id || "미상") + "<br>" +
+            "설명: 보조 대중교통 접근성 지표";
+          layer.bindPopup(html);
+          layer.on("click", () => setFeaturePanel(html));
+        }
+      });
+    }
+
+    function subwayNodeLayer() {
+      const features = []
+        .concat(filteredNodes("pangyo").map((feature) => ({ type: "Feature", geometry: feature.geometry, properties: Object.assign({}, feature.properties, { region: "pangyo" }) })))
+        .concat(filteredNodes("cheongna").map((feature) => ({ type: "Feature", geometry: feature.geometry, properties: Object.assign({}, feature.properties, { region: "cheongna" }) })));
+
+      return L.geoJSON({ type: "FeatureCollection", features }, {
+        pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
+          radius: feature.properties.is_seed_station ? 6 : 4,
+          color: feature.properties.region === "pangyo" ? REGION.pangyo.color : REGION.cheongna.color,
+          fillColor: feature.properties.region === "pangyo" ? REGION.pangyo.color : REGION.cheongna.color,
+          fillOpacity: 0.88,
+          weight: 1
+        }),
+        onEachFeature(feature, layer) {
+          const region = feature.properties.region;
+          const html =
+            "<strong>" + REGION[region].name + "</strong><br>" +
+            "역명: " + (feature.properties.station_name || "미상") + "<br>" +
+            "노선: " + (feature.properties.line_name || "미상") + "<br>" +
+            "이동시간: " + fmt(feature.properties.travel_minutes, 1) + "분";
+          layer.bindPopup(html);
+          layer.on("click", () => setFeaturePanel(html));
+        }
+      });
+    }
+
+    function isoLayer() {
+      const features = ["pangyo", "cheongna"].map((region) => state.derived.iso[region]).filter(Boolean);
+      return L.geoJSON({ type: "FeatureCollection", features }, {
+        style: (feature) => ({
+          color: feature.properties.region === "pangyo" ? REGION.pangyo.color : REGION.cheongna.color,
+          weight: 2,
+          dashArray: "6 4",
+          fillColor: feature.properties.region === "pangyo" ? "#8cc8bb" : "#c0d2e4",
+          fillOpacity: 0.28
+        }),
+        onEachFeature(feature, layer) {
+          const region = feature.properties.region;
+          const a = access(region);
+          const html =
+            "<strong>" + REGION[region].name + "</strong><br>" +
+            "선택 시간: " + state.minute + "분<br>" +
+            "도달 노드 수: " + approx(a.nodes, "nodes") + "<br>" +
+            "도달 가능 인구: " + approx(a.population, "people") + "<br>" +
+            "도달 가능 종사자: " + approx(a.workers, "people");
+          layer.bindPopup(html);
+          layer.on("click", () => setFeaturePanel(html));
+        }
+      });
+    }
+
+    function rebuildLayers() {
+      if (!state.map) return;
+
+      Object.keys(state.layers).forEach((key) => {
+        if (state.layers[key] && key !== "control") state.map.removeLayer(state.layers[key]);
+      });
+      if (state.layers.control) state.layers.control.remove();
+
+      state.layers.pangyoBoundary = boundaryLayer("pangyo");
+      state.layers.cheongnaBoundary = boundaryLayer("cheongna");
+      state.layers.landuse = landuseLayer();
+      state.layers.buildings = buildingLayer();
+      state.layers.roads = roadLayer();
+      state.layers.bus = busLayer();
+      state.layers.subwayNodes = subwayNodeLayer();
+      state.layers.iso = isoLayer();
+
+      const overlays = {
+        "판교 경계": state.layers.pangyoBoundary,
+        "청라 경계": state.layers.cheongnaBoundary,
+        "건축물": state.layers.buildings,
+        "용도지역도": state.layers.landuse,
+        "도로": state.layers.roads,
+        "버스정류장": state.layers.bus,
+        "지하철 노드": state.layers.subwayNodes,
+        "등시간권": state.layers.iso
+      };
+
+      state.layers.control = L.control.layers(null, overlays, { collapsed: false }).addTo(state.map);
+      applyVisibility();
+    }
+
+    function applyVisibility() {
+      const layerMap = {
+        pangyoBoundary: "pangyoBoundary",
+        cheongnaBoundary: "cheongnaBoundary",
+        buildings: "buildings",
+        landuse: "landuse",
+        roads: "roads",
+        bus: "bus",
+        subwayNodes: "subwayNodes",
+        iso: "iso"
+      };
+
+      Object.entries(layerMap).forEach(([filterKey, layerKey]) => {
+        const input = document.querySelector('input[data-filter="' + filterKey + '"]');
+        const layer = state.layers[layerKey];
+        if (!input || !layer || !state.map) return;
+        if (input.checked && !state.map.hasLayer(layer)) layer.addTo(state.map);
+        if (!input.checked && state.map.hasLayer(layer)) state.map.removeLayer(layer);
+      });
+
+      const sectionMap = {
+        cards: "cardsSection",
+        table: "tableSection",
+        charts: "chartsSection",
+        analysis: "analysisSection"
+      };
+
+      Object.entries(sectionMap).forEach(([filterKey, id]) => {
+        const input = document.querySelector('input[data-filter="' + filterKey + '"]');
+        if (!input) return;
+        byId(id).classList.toggle("hidden", !input.checked);
+      });
+    }
+
+    function initMap() {
+      state.map = L.map("map");
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(state.map);
+      rebuildLayers();
+      const group = L.featureGroup([state.layers.pangyoBoundary, state.layers.cheongnaBoundary]);
+      state.map.fitBounds(group.getBounds(), { padding: [24, 24] });
+      byId("mapNote").textContent = "현재 지도는 판교와 청라의 새 polygon 경계, 용도지역, 건축물, 도로, 버스정류장, 실제 지하철 노드와 " + state.minute + "분 등시간권을 함께 보여준다.";
+    }
+
+    function bindUI() {
+      document.addEventListener("change", (event) => {
+        if (event.target.matches('input[data-filter]')) applyVisibility();
+      });
+
+      document.querySelectorAll(".focus-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll(".focus-button").forEach((item) => item.classList.remove("active"));
+          button.classList.add("active");
+          const focus = button.dataset.focus;
+          if (!state.map) return;
+          if (focus === "pangyo") state.map.fitBounds(state.layers.pangyoBoundary.getBounds(), { padding: [24, 24] });
+          if (focus === "cheongna") state.map.fitBounds(state.layers.cheongnaBoundary.getBounds(), { padding: [24, 24] });
+          if (focus === "all") {
+            const group = L.featureGroup([state.layers.pangyoBoundary, state.layers.cheongnaBoundary]);
+            state.map.fitBounds(group.getBounds(), { padding: [24, 24] });
+          }
+        });
+      });
+
+      byId("timeSlider").addEventListener("input", (event) => {
+        state.minute = Number(event.target.value);
+        byId("sliderLabel").textContent = "선택 등시간권: " + state.minute + "분";
+        computeDerived();
+        renderAccessSummary();
+        renderMetricCards();
+        renderTable();
+        renderCharts();
+        renderAnalysis();
+        rebuildLayers();
+        byId("mapNote").textContent = state.minute + "분 기준으로 지하철 노드, 등시간권, 접근성 카드, 그래프를 갱신했다.";
+      });
+    }
+
+    async function loadData() {
+      const files = await Promise.all([
+        fetchJson("./data/metrics.json"),
+        fetchJson("./data/pangyo_boundary.geojson"),
+        fetchJson("./data/cheongna_boundary.geojson"),
+        fetchJson("./data/pangyo_landuse_features.geojson"),
+        fetchJson("./data/cheongna_landuse_features.geojson"),
+        fetchJson("./data/pangyo_map_buildings.geojson"),
+        fetchJson("./data/cheongna_map_buildings.geojson"),
+        fetchJson("./data/pangyo_map_roads.geojson"),
+        fetchJson("./data/cheongna_map_roads.geojson"),
+        fetchJson("./data/bus_stops.geojson"),
+        fetchJson("./data/processed/buildinghub_basic_summary.json"),
+        fetchJson("./data/pangyo_subway_nodes_60.geojson"),
+        fetchJson("./data/cheongna_subway_nodes_60.geojson"),
+        fetchJson("./data/pangyo_subway_accessibility_curve.json"),
+        fetchJson("./data/cheongna_subway_accessibility_curve.json")
+      ]);
+
+      state.data.metrics = files[0];
+      state.data.boundaries.pangyo = files[1];
+      state.data.boundaries.cheongna = files[2];
+      state.data.landuse.pangyo = files[3];
+      state.data.landuse.cheongna = files[4];
+      state.data.buildings.pangyo = files[5];
+      state.data.buildings.cheongna = files[6];
+      state.data.roads.pangyo = files[7];
+      state.data.roads.cheongna = files[8];
+      state.data.bus = files[9];
+      state.data.buildingHubSummary = files[10];
+      state.data.subwayNodes.pangyo = files[11];
+      state.data.subwayNodes.cheongna = files[12];
+      state.data.curves.pangyo = files[13];
+      state.data.curves.cheongna = files[14];
+    }
+
+    async function initialize() {
+      bindUI();
+      await loadData();
+      computeDerived();
+      renderAccessSummary();
+      renderMetricCards();
+      renderTable();
+      renderCharts();
+      renderAnalysis();
+      initMap();
+    }
+
+    initialize().catch((error) => {
+      console.error(error);
+      byId("mapNote").textContent = "필수 데이터 로딩 중 오류가 발생했다. 서버를 새로고침하고 data 파일 경로를 다시 확인해야 한다.";
+    });
+  </script>
+</body>
+</html>

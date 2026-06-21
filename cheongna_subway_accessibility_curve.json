@@ -1,0 +1,86 @@
+{
+  "dataset": "subway_accessibility_curve",
+  "reference_year": 2023,
+  "region": "cheongna",
+  "region_name": "청라국제업무지구",
+  "curve": [
+    {
+      "minute": 0,
+      "reachable_nodes": 1,
+      "accessible_population": 68.4576227047435,
+      "accessible_workers": 321.0150654385005
+    },
+    {
+      "minute": 5,
+      "reachable_nodes": 2,
+      "accessible_population": 0.0,
+      "accessible_workers": 0.0
+    },
+    {
+      "minute": 10,
+      "reachable_nodes": 3,
+      "accessible_population": 1009.4853274980492,
+      "accessible_workers": 2431.2132386227036
+    },
+    {
+      "minute": 15,
+      "reachable_nodes": 7,
+      "accessible_population": 54661.313431707225,
+      "accessible_workers": 21022.132803910205
+    },
+    {
+      "minute": 20,
+      "reachable_nodes": 17,
+      "accessible_population": 323838.1843190317,
+      "accessible_workers": 105218.94791644995
+    },
+    {
+      "minute": 25,
+      "reachable_nodes": 29,
+      "accessible_population": 381734.85122253327,
+      "accessible_workers": 121654.2885612722
+    },
+    {
+      "minute": 30,
+      "reachable_nodes": 47,
+      "accessible_population": 525458.3270461642,
+      "accessible_workers": 183134.1296884619
+    },
+    {
+      "minute": 35,
+      "reachable_nodes": 62,
+      "accessible_population": 560842.6475839836,
+      "accessible_workers": 210025.7410302453
+    },
+    {
+      "minute": 40,
+      "reachable_nodes": 85,
+      "accessible_population": 610137.4251396365,
+      "accessible_workers": 218454.93541968148
+    },
+    {
+      "minute": 45,
+      "reachable_nodes": 127,
+      "accessible_population": 621351.2719809236,
+      "accessible_workers": 235227.75331137562
+    },
+    {
+      "minute": 50,
+      "reachable_nodes": 191,
+      "accessible_population": 621848.0,
+      "accessible_workers": 238937.0
+    },
+    {
+      "minute": 55,
+      "reachable_nodes": 242,
+      "accessible_population": 621848.0,
+      "accessible_workers": 238937.0
+    },
+    {
+      "minute": 60,
+      "reachable_nodes": 296,
+      "accessible_population": 621848.0,
+      "accessible_workers": 238937.0
+    }
+  ]
+}
