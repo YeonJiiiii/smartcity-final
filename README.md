@@ -1,6 +1,6 @@
 # 데이터로 진단하는 업무지구의 성공과 실패
 
-본 시스템은 가천대학교 스마트시티학과 「스마트시티의 이론과 실제」 기말 대체 제출용 정적 비교분석 시스템이다. 기존 React/Vite 프로젝트는 수정하지 않고, `욘띠츄츄_FINAL` 폴더 안의 정적 제출본만 사용한다.
+본 시스템은 가천대학교 스마트시티학과 「스마트시티의 이론과 실제」 기말 대체 제출용 정적 비교분석 시스템이다. 
 
 ## 기본 원칙
 
@@ -30,18 +30,7 @@
 - `data/cheongna_subway_nodes_60.geojson`
 - `data/pangyo_subway_accessibility_curve.json`
 - `data/cheongna_subway_accessibility_curve.json`
-
-## 실행 방법
-
-```bash
-cd "C:\Users\jiya5\OneDrive\Desktop\욘띠츄츄_FINAL"
-python -m http.server 8000
-```
-
-## 접속
-
-```text
-http://localhost:8000
+  
 ```
 
 ## 화면 구성
