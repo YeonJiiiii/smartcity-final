@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -639,6 +639,7 @@
       map: null,
       charts: {},
       layers: {},
+      loadStatus: {},
       data: {
         metrics: null,
         boundaries: {},
@@ -664,11 +665,15 @@
       return document.getElementById(id);
     }
 
-    function fetchJson(path) {
+        function fetchJson(path, key) {
       return fetch(path).then((response) => {
         if (!response.ok) throw new Error(path + " load failed");
+        if (key) state.loadStatus[key] = "ok";
         return response.json();
-      }).catch(() => null);
+      }).catch(() => {
+        if (key) state.loadStatus[key] = "load_failed";
+        return null;
+      });
     }
 
     function fmt(value, digits = 2) {
@@ -699,11 +704,12 @@
       return Number.isFinite(n) ? n.toFixed(2) + " /km²" : "데이터 미확보";
     }
 
-    function normalizePair(a, b) {
-      const x = Number(a) || 0;
-      const y = Number(b) || 0;
+        function normalizePair(a, b) {
+      const x = Number(a);
+      const y = Number(b);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) return [null, null];
       const max = Math.max(x, y);
-      if (!max) return [0, 0];
+      if (!max) return [null, null];
       return [x / max * 100, y / max * 100];
     }
 
@@ -1037,12 +1043,12 @@
       const p = access("pangyo");
       const c = access("cheongna");
       const cards = [
-        ["판교 경계 면적", areaText(state.derived.areaKm2.pangyo), "Turf.js polygon 계산"],
-        ["청라 경계 면적", areaText(state.derived.areaKm2.cheongna), "Turf.js polygon 계산"],
-        ["판교 총종사자수", approx(metric("pangyo", "totalWorkers"), "people"), "확정 입력값"],
-        ["청라 총종사자수", approx(metric("cheongna", "totalWorkers"), "people"), "확정 입력값"],
-        ["판교 직주비", ratioText(metric("pangyo", "jobHousingRatio")), "종사자수 / 상주인구"],
-        ["청라 직주비", ratioText(metric("cheongna", "jobHousingRatio")), "종사자수 / 상주인구"],
+        ["판교 경계 면적", state.loadStatus.pangyoBoundary === "load_failed" ? "경계 파일 로드 실패" : areaText(state.derived.areaKm2.pangyo), "Turf.js polygon 계산"],
+        ["청라 경계 면적", state.loadStatus.cheongnaBoundary === "load_failed" ? "경계 파일 로드 실패" : areaText(state.derived.areaKm2.cheongna), "Turf.js polygon 계산"],
+        ["판교 총종사자수", state.loadStatus.metrics === "load_failed" ? "자료 로드 실패" : approx(metric("pangyo", "totalWorkers"), "people"), "확정 입력값"],
+        ["청라 총종사자수", state.loadStatus.metrics === "load_failed" ? "자료 로드 실패" : approx(metric("cheongna", "totalWorkers"), "people"), "확정 입력값"],
+        ["판교 직주비", state.loadStatus.metrics === "load_failed" ? "자료 로드 실패" : ratioText(metric("pangyo", "jobHousingRatio")), "종사자수 / 상주인구"],
+        ["청라 직주비", state.loadStatus.metrics === "load_failed" ? "자료 로드 실패" : ratioText(metric("cheongna", "jobHousingRatio")), "종사자수 / 상주인구"],
         ["판교 " + state.minute + "분 도달 노드", approx(p.nodes, "nodes"), "실제 지하철 노드 기준"],
         ["청라 " + state.minute + "분 도달 노드", approx(c.nodes, "nodes"), "실제 지하철 노드 기준"],
         ["판교 버스정류장 밀도", densityText(state.derived.bus.pangyo && state.derived.bus.pangyo.density), "보조 대중교통 지표"],
@@ -1083,7 +1089,7 @@
       const pA = access("pangyo");
       const cA = access("cheongna");
       const rows = [
-        ["경계 면적", areaText(state.derived.areaKm2.pangyo), areaText(state.derived.areaKm2.cheongna), diffText(state.derived.areaKm2.pangyo, state.derived.areaKm2.cheongna, "value"), winner(state.derived.areaKm2.pangyo, state.derived.areaKm2.cheongna), "사용자 정의 boundary polygon 기준 면적"],
+        ["경계 면적", state.loadStatus.pangyoBoundary === "load_failed" ? "경계 파일 로드 실패" : areaText(state.derived.areaKm2.pangyo), state.loadStatus.cheongnaBoundary === "load_failed" ? "경계 파일 로드 실패" : areaText(state.derived.areaKm2.cheongna), diffText(state.derived.areaKm2.pangyo, state.derived.areaKm2.cheongna, "value"), winner(state.derived.areaKm2.pangyo, state.derived.areaKm2.cheongna), "사용자 정의 boundary polygon 기준 면적"],
         ["총인구", approx(metric("pangyo", "totalPopulation"), "people"), approx(metric("cheongna", "totalPopulation"), "people"), diffText(metric("pangyo", "totalPopulation"), metric("cheongna", "totalPopulation"), "value"), winner(metric("pangyo", "totalPopulation"), metric("cheongna", "totalPopulation")), "총인구는 업무지구 성공 판단에서 해석 주의가 필요하다."],
         ["총가구수", approx(metric("pangyo", "totalHouseholds"), "households"), approx(metric("cheongna", "totalHouseholds"), "households"), diffText(metric("pangyo", "totalHouseholds"), metric("cheongna", "totalHouseholds"), "value"), winner(metric("pangyo", "totalHouseholds"), metric("cheongna", "totalHouseholds")), "가구수는 배후 주거 성격을 보여주는 참고 지표다."],
         ["총종사자수", approx(metric("pangyo", "totalWorkers"), "people"), approx(metric("cheongna", "totalWorkers"), "people"), diffText(metric("pangyo", "totalWorkers"), metric("cheongna", "totalWorkers"), "ratio"), winner(metric("pangyo", "totalWorkers"), metric("cheongna", "totalWorkers")), "판교 총종사자수는 청라보다 약 68.3배 높아 고용 집적이 뚜렷하다."],
@@ -1161,14 +1167,14 @@
           datasets: [
             {
               label: "판교 도달 노드",
-              data: [10, 20, 30, 40, 50, 60].map((minute) => curvePoint("pangyo", minute)?.reachable_nodes || 0),
+              data: [10, 20, 30, 40, 50, 60].map((minute) => curvePoint("pangyo", minute)?.reachable_nodes ?? null),
               borderColor: REGION.pangyo.color,
               backgroundColor: REGION.pangyo.color,
               tension: 0.25
             },
             {
               label: "청라 도달 노드",
-              data: [10, 20, 30, 40, 50, 60].map((minute) => curvePoint("cheongna", minute)?.reachable_nodes || 0),
+              data: [10, 20, 30, 40, 50, 60].map((minute) => curvePoint("cheongna", minute)?.reachable_nodes ?? null),
               borderColor: REGION.cheongna.color,
               backgroundColor: REGION.cheongna.color,
               tension: 0.25
@@ -1210,7 +1216,7 @@
               label: "판교 구성비",
               data: landuseLabels.map((name) => {
                 const hit = (state.derived.landuse.pangyo?.shares || []).find((item) => item.name === name);
-                return hit ? hit.share : 0;
+                return hit ? hit.share : null;
               }),
               backgroundColor: REGION.pangyo.color
             },
@@ -1218,7 +1224,7 @@
               label: "청라 구성비",
               data: landuseLabels.map((name) => {
                 const hit = (state.derived.landuse.cheongna?.shares || []).find((item) => item.name === name);
-                return hit ? hit.share : 0;
+                return hit ? hit.share : null;
               }),
               backgroundColor: REGION.cheongna.color
             }
@@ -1298,8 +1304,10 @@
         '<div style="margin-top:12px"><strong>청라</strong><br>도달 노드 ' + approx(c.nodes, "nodes") + '<br>도달 가능 인구 ' + approx(c.population, "people") + '<br>도달 가능 종사자 ' + approx(c.workers, "people") + '</div>';
     }
 
-    function boundaryLayer(region) {
-      return L.geoJSON(state.data.boundaries[region], {
+        function boundaryLayer(region) {
+      const boundary = state.data.boundaries[region];
+      if (!boundary) return L.layerGroup();
+      return L.geoJSON(boundary, {
         style: {
           color: REGION[region].color,
           fillColor: REGION[region].fill,
@@ -1308,17 +1316,14 @@
         },
         onEachFeature(feature, layer) {
           const area = turf.area(feature) / 1000000;
-          layer.bindPopup(
-            "<strong>" + REGION[region].name + "</strong><br>" +
-            "면적: " + area.toFixed(3) + " km²<br>" +
-            "기준연도: 2023년"
-          );
-          layer.on("click", () => {
-            setFeaturePanel(
-              "<strong>" + REGION[region].name + "</strong><br>" +
-              "면적: " + area.toFixed(3) + " km²<br>" +
-              "설명: 사용자 정의 boundary polygon 기준 면적"
-            );
+          const html =
+            '<strong>' + REGION[region].name + '</strong><br>' +
+            '면적: ' + area.toFixed(3) + ' km²<br>' +
+            '기준연도: 2023년<br>' +
+            '면적 출처: 사용자 정의 boundary polygon 기준 면적';
+          layer.bindPopup(html);
+          layer.on('click', () => {
+            setFeaturePanel(html);
           });
         }
       });
@@ -1345,7 +1350,7 @@
             "<strong>" + REGION[region].name + "</strong><br>" +
             "용도지역: " + feature.properties.zone_label + "<br>" +
             "면적: " + feature.properties.clip_area_km2.toFixed(4) + " km²<br>" +
-            "구성비: " + (share ? share.toFixed(2) : "0.00") + "%";
+            "구성비: " + (share !== null ? share.toFixed(2) : "데이터 미확보") + "%";
           layer.bindPopup(html);
           layer.on("click", () => setFeaturePanel(html));
         }
@@ -1559,15 +1564,20 @@
       });
     }
 
-    function initMap() {
+        function initMap() {
       state.map = L.map("map");
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors"
       }).addTo(state.map);
       rebuildLayers();
-      const group = L.featureGroup([state.layers.pangyoBoundary, state.layers.cheongnaBoundary]);
-      state.map.fitBounds(group.getBounds(), { padding: [24, 24] });
-      byId("mapNote").textContent = "현재 지도는 판교와 청라의 새 polygon 경계, 용도지역, 건축물, 도로, 버스정류장, 실제 지하철 노드와 " + state.minute + "분 등시간권을 함께 보여준다.";
+      const boundaries = [state.layers.pangyoBoundary, state.layers.cheongnaBoundary].filter((layer) => layer && typeof layer.getBounds === "function");
+      if (boundaries.length) {
+        const group = L.featureGroup(boundaries);
+        state.map.fitBounds(group.getBounds(), { padding: [24, 24] });
+        byId("mapNote").textContent = "현재 지도는 판교와 청라의 새 polygon 경계, 용도지역, 건축물, 도로, 버스정류장, 지하철 노드와 등시간권을 함께 보여준다.";
+      } else {
+        byId("mapNote").textContent = "경계 파일 로드 실패로 일부 레이어가 비어 있다.";
+      }
     }
 
     function bindUI() {
@@ -1581,8 +1591,8 @@
           button.classList.add("active");
           const focus = button.dataset.focus;
           if (!state.map) return;
-          if (focus === "pangyo") state.map.fitBounds(state.layers.pangyoBoundary.getBounds(), { padding: [24, 24] });
-          if (focus === "cheongna") state.map.fitBounds(state.layers.cheongnaBoundary.getBounds(), { padding: [24, 24] });
+          if (focus === "pangyo" && state.layers.pangyoBoundary && typeof state.layers.pangyoBoundary.getBounds === "function") state.map.fitBounds(state.layers.pangyoBoundary.getBounds(), { padding: [24, 24] });
+          if (focus === "cheongna" && state.layers.cheongnaBoundary && typeof state.layers.cheongnaBoundary.getBounds === "function") state.map.fitBounds(state.layers.cheongnaBoundary.getBounds(), { padding: [24, 24] });
           if (focus === "all") {
             const group = L.featureGroup([state.layers.pangyoBoundary, state.layers.cheongnaBoundary]);
             state.map.fitBounds(group.getBounds(), { padding: [24, 24] });
@@ -1604,23 +1614,23 @@
       });
     }
 
-    async function loadData() {
+        async function loadData() {
       const files = await Promise.all([
-        fetchJson("./data/metrics.json"),
-        fetchJson("./data/pangyo_boundary.geojson"),
-        fetchJson("./data/cheongna_boundary.geojson"),
-        fetchJson("./data/pangyo_landuse_features.geojson"),
-        fetchJson("./data/cheongna_landuse_features.geojson"),
-        fetchJson("./data/pangyo_map_buildings.geojson"),
-        fetchJson("./data/cheongna_map_buildings.geojson"),
-        fetchJson("./data/pangyo_map_roads.geojson"),
-        fetchJson("./data/cheongna_map_roads.geojson"),
-        fetchJson("./data/bus_stops.geojson"),
-        fetchJson("./data/processed/buildinghub_basic_summary.json"),
-        fetchJson("./data/pangyo_subway_nodes_60.geojson"),
-        fetchJson("./data/cheongna_subway_nodes_60.geojson"),
-        fetchJson("./data/pangyo_subway_accessibility_curve.json"),
-        fetchJson("./data/cheongna_subway_accessibility_curve.json")
+        fetchJson("./data/metrics.json", "metrics"),
+        fetchJson("./data/pangyo_boundary.geojson", "pangyoBoundary"),
+        fetchJson("./data/cheongna_boundary.geojson", "cheongnaBoundary"),
+        fetchJson("./data/pangyo_landuse_features.geojson", "pangyoLanduse"),
+        fetchJson("./data/cheongna_landuse_features.geojson", "cheongnaLanduse"),
+        fetchJson("./data/pangyo_map_buildings.geojson", "pangyoBuildings"),
+        fetchJson("./data/cheongna_map_buildings.geojson", "cheongnaBuildings"),
+        fetchJson("./data/pangyo_map_roads.geojson", "pangyoRoads"),
+        fetchJson("./data/cheongna_map_roads.geojson", "cheongnaRoads"),
+        fetchJson("./data/bus_stops.geojson", "busStops"),
+        fetchJson("./data/processed/buildinghub_basic_summary.json", "buildingHubSummary"),
+        fetchJson("./data/pangyo_subway_nodes_60.geojson", "pangyoSubwayNodes"),
+        fetchJson("./data/cheongna_subway_nodes_60.geojson", "cheongnaSubwayNodes"),
+        fetchJson("./data/pangyo_subway_accessibility_curve.json", "pangyoCurve"),
+        fetchJson("./data/cheongna_subway_accessibility_curve.json", "cheongnaCurve")
       ]);
 
       state.data.metrics = files[0];
