@@ -1,0 +1,46 @@
+{
+  "dataset": "landuse",
+  "status": "processed",
+  "reference_year": "2023",
+  "region": "pangyo",
+  "region_name": "제1판교테크노밸리",
+  "method": "KLIP zoning polygons clipped by raw polygon boundary",
+  "summary": {
+    "label": "제1판교테크노밸리",
+    "status": "processed",
+    "zone_column": "dgm_nm",
+    "source_crs": "EPSG:5174",
+    "boundary_area_m2": 901712.7823304654,
+    "total_area_m2": 901712.6887372023,
+    "zone_area_ratio": {
+      "준주거지역": {
+        "area_m2": 739324.8174725936,
+        "area_ratio_percent": 81.9912
+      },
+      "자연녹지지역": {
+        "area_m2": 148123.93807448412,
+        "area_ratio_percent": 16.427
+      },
+      "제3종일반주거지역": {
+        "area_m2": 8670.873645688276,
+        "area_ratio_percent": 0.9616
+      },
+      "보전녹지지역": {
+        "area_m2": 5593.059544436366,
+        "area_ratio_percent": 0.6203
+      }
+    },
+    "landuse_entropy": 0.38642487379904655,
+    "feature_count": 7,
+    "clip_area_m2": 901712.6887372023,
+    "intersects_boundary": true
+  },
+  "source_inventory": {
+    "status": "processed",
+    "archive": "C:\\Users\\jiya5\\OneDrive\\Desktop\\욘띠츄츄\\KLIP_004_20260501_41000.zip",
+    "layer": "KLIP_C_UQ111",
+    "zone_column": "dgm_nm",
+    "feature_count": 7,
+    "source_crs": "EPSG:5174"
+  }
+}

@@ -1,0 +1,24 @@
+﻿{
+  "status": "sample_schema_data_unavailable",
+  "baseYear": null,
+  "regions": {
+    "pangyo": {
+      "zoningComposition": null,
+      "buildingUseComposition": null,
+      "lumEntropy": null,
+      "floorAreaRatioEstimate": null,
+      "developmentRealization": null
+    },
+    "cheongna": {
+      "zoningComposition": null,
+      "buildingUseComposition": null,
+      "lumEntropy": null,
+      "floorAreaRatioEstimate": null,
+      "developmentRealization": null
+    }
+  },
+  "notes": [
+    "VWorld 토지이용계획 및 용도지역 데이터 미연결",
+    "정적 제출본에서는 스키마와 표시 로직만 제공"
+  ]
+}

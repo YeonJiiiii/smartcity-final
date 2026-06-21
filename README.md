@@ -31,6 +31,19 @@
 - `data/pangyo_subway_accessibility_curve.json`
 - `data/cheongna_subway_accessibility_curve.json`
 
+## 실행 방법
+
+```bash
+cd "C:\Users\jiya5\OneDrive\Desktop\욘띠츄츄_FINAL"
+python -m http.server 8000
+```
+
+## 접속
+
+```text
+http://localhost:8000
+```
+
 ## 화면 구성
 
 - 상단 사용자 정보

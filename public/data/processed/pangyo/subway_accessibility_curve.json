@@ -1,0 +1,86 @@
+{
+  "dataset": "subway_accessibility_curve",
+  "reference_year": 2023,
+  "region": "pangyo",
+  "region_name": "제1판교테크노밸리",
+  "curve": [
+    {
+      "minute": 0,
+      "reachable_nodes": 2,
+      "accessible_population": 0.0,
+      "accessible_workers": 0.0
+    },
+    {
+      "minute": 5,
+      "reachable_nodes": 3,
+      "accessible_population": 417.9571285329979,
+      "accessible_workers": 1265.1260377716085
+    },
+    {
+      "minute": 10,
+      "reachable_nodes": 8,
+      "accessible_population": 83562.95683496301,
+      "accessible_workers": 110404.00674686959
+    },
+    {
+      "minute": 15,
+      "reachable_nodes": 16,
+      "accessible_population": 177895.66257318604,
+      "accessible_workers": 220276.17505932343
+    },
+    {
+      "minute": 20,
+      "reachable_nodes": 24,
+      "accessible_population": 265525.6764276147,
+      "accessible_workers": 291185.29452649236
+    },
+    {
+      "minute": 25,
+      "reachable_nodes": 47,
+      "accessible_population": 290651.0494219283,
+      "accessible_workers": 299592.7920840217
+    },
+    {
+      "minute": 30,
+      "reachable_nodes": 79,
+      "accessible_population": 386471.4452800886,
+      "accessible_workers": 336605.06739819003
+    },
+    {
+      "minute": 35,
+      "reachable_nodes": 117,
+      "accessible_population": 451221.0,
+      "accessible_workers": 360740.0
+    },
+    {
+      "minute": 40,
+      "reachable_nodes": 162,
+      "accessible_population": 451221.0,
+      "accessible_workers": 360740.0
+    },
+    {
+      "minute": 45,
+      "reachable_nodes": 234,
+      "accessible_population": 451221.0,
+      "accessible_workers": 360740.0
+    },
+    {
+      "minute": 50,
+      "reachable_nodes": 328,
+      "accessible_population": 451221.0,
+      "accessible_workers": 360740.0
+    },
+    {
+      "minute": 55,
+      "reachable_nodes": 385,
+      "accessible_population": 451221.0,
+      "accessible_workers": 360740.0
+    },
+    {
+      "minute": 60,
+      "reachable_nodes": 443,
+      "accessible_population": 451221.0,
+      "accessible_workers": 360740.0
+    }
+  ]
+}
