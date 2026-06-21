@@ -1,0 +1,104 @@
+﻿{
+  "project": {
+    "title": "데이터로 진단하는 업무지구의 성공과 실패",
+    "subtitle": "제1판교테크노밸리와 청라국제업무지구 비교분석 시스템",
+    "analysisType": "cross_sectional_static_submission",
+    "defaultBaseYear": 2023,
+    "compareArea": "청라국제업무지구",
+    "notes": [
+      "제2판교테크노밸리는 본 제출본의 기본 비교 범위에서 제외하였다.",
+      "제출본은 정적 웹앱 구조와 검증 가능한 수치만을 반영한다.",
+      "미수집 원자료는 null 또는 데이터 미확보로 유지한다."
+    ]
+  },
+  "regions": {
+    "pangyo": {
+      "name": "제1판교테크노밸리",
+      "representativeStationCandidate": "판교역",
+      "selectedStation": null,
+      "stationValidationStatus": "nodes.tsv 미검증",
+      "baseYear": 2023,
+      "spatialUnits": {
+        "boundary": "사용자 정의 polygon",
+        "socio": "경계-집계구 추정 집계값",
+        "landuse": "미확보",
+        "building": "미확보",
+        "transport": "역 노드 기반 예정"
+      },
+      "socio": {
+        "totalPopulation": { "value": 357.43, "unit": "명", "status": "verified_user_input" },
+        "totalHouseholds": { "value": 305.84, "unit": "가구", "status": "verified_user_input" },
+        "totalWorkers": { "value": 48306.45, "unit": "명", "status": "verified_user_input" },
+        "totalBusinesses": { "value": 1562.08, "unit": "개", "status": "verified_user_input" },
+        "jobHousingRatio": { "value": 135.15, "unit": "배", "status": "derived_from_verified_user_input" },
+        "industryComposition": { "value": null, "unit": null, "status": "data_unavailable" }
+      },
+      "landuse": {
+        "zoningComposition": { "value": null, "unit": null, "status": "data_unavailable" },
+        "buildingUseComposition": { "value": null, "unit": null, "status": "data_unavailable" },
+        "lumEntropy": { "value": null, "unit": null, "status": "data_unavailable" },
+        "floorAreaRatioEstimate": { "value": null, "unit": null, "status": "data_unavailable" },
+        "developmentRealization": { "value": null, "unit": null, "status": "data_unavailable" }
+      },
+      "transport": {
+        "workersAccessible30Min": { "value": null, "unit": "명", "status": "data_unavailable" },
+        "workersAccessible60Min": { "value": null, "unit": "명", "status": "data_unavailable" },
+        "populationAccessible30Min": { "value": null, "unit": "명", "status": "data_unavailable" },
+        "populationAccessible60Min": { "value": null, "unit": "명", "status": "data_unavailable" },
+        "businessesAccessible30Min": { "value": null, "unit": "개", "status": "data_unavailable" },
+        "businessesAccessible60Min": { "value": null, "unit": "개", "status": "data_unavailable" },
+        "stationArea500mRatio": { "value": null, "unit": "%", "status": "data_unavailable" },
+        "stationArea1kmRatio": { "value": null, "unit": "%", "status": "data_unavailable" },
+        "busStopDensity": { "value": null, "unit": "개/km²", "status": "data_unavailable" },
+        "roadDensity": { "value": null, "unit": "km/km²", "status": "data_unavailable" }
+      }
+    },
+    "cheongna": {
+      "name": "청라국제업무지구",
+      "representativeStationCandidate": "청라국제도시역",
+      "selectedStation": null,
+      "stationValidationStatus": "nodes.tsv 미검증",
+      "baseYear": 2023,
+      "spatialUnits": {
+        "boundary": "사용자 정의 polygon",
+        "socio": "경계-집계구 추정 집계값",
+        "landuse": "미확보",
+        "building": "미확보",
+        "transport": "역 노드 기반 예정"
+      },
+      "socio": {
+        "totalPopulation": { "value": 4856.82, "unit": "명", "status": "verified_user_input" },
+        "totalHouseholds": { "value": 1826.78, "unit": "가구", "status": "verified_user_input" },
+        "totalWorkers": { "value": 707.34, "unit": "명", "status": "verified_user_input" },
+        "totalBusinesses": { "value": 297.85, "unit": "개", "status": "verified_user_input" },
+        "jobHousingRatio": { "value": 0.15, "unit": "배", "status": "derived_from_verified_user_input" },
+        "industryComposition": { "value": null, "unit": null, "status": "data_unavailable" }
+      },
+      "landuse": {
+        "zoningComposition": { "value": null, "unit": null, "status": "data_unavailable" },
+        "buildingUseComposition": { "value": null, "unit": null, "status": "data_unavailable" },
+        "lumEntropy": { "value": null, "unit": null, "status": "data_unavailable" },
+        "floorAreaRatioEstimate": { "value": null, "unit": null, "status": "data_unavailable" },
+        "developmentRealization": { "value": null, "unit": null, "status": "data_unavailable" }
+      },
+      "transport": {
+        "workersAccessible30Min": { "value": null, "unit": "명", "status": "data_unavailable" },
+        "workersAccessible60Min": { "value": null, "unit": "명", "status": "data_unavailable" },
+        "populationAccessible30Min": { "value": null, "unit": "명", "status": "data_unavailable" },
+        "populationAccessible60Min": { "value": null, "unit": "명", "status": "data_unavailable" },
+        "businessesAccessible30Min": { "value": null, "unit": "개", "status": "data_unavailable" },
+        "businessesAccessible60Min": { "value": null, "unit": "개", "status": "data_unavailable" },
+        "stationArea500mRatio": { "value": null, "unit": "%", "status": "data_unavailable" },
+        "stationArea1kmRatio": { "value": null, "unit": "%", "status": "data_unavailable" },
+        "busStopDensity": { "value": null, "unit": "개/km²", "status": "data_unavailable" },
+        "roadDensity": { "value": null, "unit": "km/km²", "status": "data_unavailable" }
+      }
+    }
+  },
+  "comparisonNotes": [
+    "판교 총종사자수는 청라보다 약 68.3배 높다.",
+    "판교 총사업체수는 청라보다 약 5.2배 높다.",
+    "판교 직주비는 청라보다 매우 높아 업무·고용 중심성이 강하다.",
+    "토지이용·건축물·철도 네트워크 원자료가 연결되면 추가 지표를 확장할 수 있다."
+  ]
+}

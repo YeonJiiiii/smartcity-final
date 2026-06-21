@@ -1,0 +1,1180 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 313,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "청라국제도시",
+        "line_name": "공항철도",
+        "travel_seconds": 0.0,
+        "travel_minutes": 0.0,
+        "cutoff_minutes": 0,
+        "node_category": "기준역",
+        "is_seed_station": true,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.62464505549165,
+          37.55648532952862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 312,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "영종",
+        "line_name": "공항철도",
+        "travel_seconds": 480.0,
+        "travel_minutes": 8.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.52458657668389,
+          37.51183723123434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 314,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "검암",
+        "line_name": "공항철도",
+        "travel_seconds": 300.0,
+        "travel_minutes": 5.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67368078052438,
+          37.56924502685766
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 315,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "계양",
+        "line_name": "공항철도",
+        "travel_seconds": 720.0,
+        "travel_minutes": 12.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.73634885107874,
+          37.571769643436774
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 287,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "검암",
+        "line_name": "인천2호선",
+        "travel_seconds": 780.0,
+        "travel_minutes": 13.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67564317878316,
+          37.56872333769509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 311,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "운서",
+        "line_name": "공항철도",
+        "travel_seconds": 720.0,
+        "travel_minutes": 12.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.49368716386016,
+          37.49285960419908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 310,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "공항화물청사",
+        "line_name": "공항철도",
+        "travel_seconds": 1020.0,
+        "travel_minutes": 17.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.47736804363741,
+          37.458986990351015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 316,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "김포공항",
+        "line_name": "공항철도",
+        "travel_seconds": 1080.0,
+        "travel_minutes": 18.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.8018135167875,
+          37.561890927429154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 277,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "계양",
+        "line_name": "인천1호선",
+        "travel_seconds": 1080.0,
+        "travel_minutes": 18.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.73635630875077,
+          37.571532460315666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 286,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "독정",
+        "line_name": "인천2호선",
+        "travel_seconds": 926.0,
+        "travel_minutes": 15.4,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67597689172382,
+          37.58491672319505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 288,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "검바위",
+        "line_name": "인천2호선",
+        "travel_seconds": 885.0,
+        "travel_minutes": 14.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67752779099276,
+          37.5612431459511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 289,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "아시아드경기장",
+        "line_name": "인천2호선",
+        "travel_seconds": 1035.0,
+        "travel_minutes": 17.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67715344747967,
+          37.55202843644741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 285,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "완정",
+        "line_name": "인천2호선",
+        "travel_seconds": 1028.0,
+        "travel_minutes": 17.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67294794012362,
+          37.593046182371125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 309,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "인천공항1터미널",
+        "line_name": "공항철도",
+        "travel_seconds": 1200.0,
+        "travel_minutes": 20.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.45270837082361,
+          37.44756949409256
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 284,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "마전",
+        "line_name": "인천2호선",
+        "travel_seconds": 1134.0,
+        "travel_minutes": 18.9,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.66716856942418,
+          37.59765913177729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 290,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "서구청",
+        "line_name": "인천2호선",
+        "travel_seconds": 1132.0,
+        "travel_minutes": 18.9,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67684261734425,
+          37.54398102426325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 276,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "귤현",
+        "line_name": "인천1호선",
+        "travel_seconds": 1200.0,
+        "travel_minutes": 20.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.7426695614055,
+          37.56639671533986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 317,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "마곡나루",
+        "line_name": "공항철도",
+        "travel_seconds": 1500.0,
+        "travel_minutes": 25.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.82754351158827,
+          37.5653856875659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 572,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "김포공항",
+        "line_name": "서울5호선",
+        "travel_seconds": 1400.0,
+        "travel_minutes": 23.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.80133962379112,
+          37.562512968734566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 870,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "김포공항",
+        "line_name": "서울9호선급행",
+        "travel_seconds": 1420.0,
+        "travel_minutes": 23.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.80185933329786,
+          37.56215435260769
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 743,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "김포공항",
+        "line_name": "서울9호선",
+        "travel_seconds": 1360.0,
+        "travel_minutes": 22.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.80183315768853,
+          37.561975300829005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 214,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "김포공항",
+        "line_name": "김포도시철도",
+        "travel_seconds": 1350.0,
+        "travel_minutes": 22.5,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.80217798450725,
+          37.562305670580045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 39,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "김포공항",
+        "line_name": "서해선",
+        "travel_seconds": 1620.0,
+        "travel_minutes": 27.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.80111883305007,
+          37.56229141053487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 291,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "가정",
+        "line_name": "인천2호선",
+        "travel_seconds": 1298.0,
+        "travel_minutes": 21.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67539548546307,
+          37.52509508945347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 283,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "검단사거리",
+        "line_name": "인천2호선",
+        "travel_seconds": 1267.0,
+        "travel_minutes": 21.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.65652943167763,
+          37.60168928630328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 275,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "박촌",
+        "line_name": "인천1호선",
+        "travel_seconds": 1380.0,
+        "travel_minutes": 23.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.7451060004568,
+          37.55406809324822
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 308,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "인천공항2터미널",
+        "line_name": "공항철도",
+        "travel_seconds": 1620.0,
+        "travel_minutes": 27.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.43357757667609,
+          37.46877657917764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 282,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "왕길",
+        "line_name": "인천2호선",
+        "travel_seconds": 1424.0,
+        "travel_minutes": 23.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.64241503106457,
+          37.595132774772814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 292,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "가정중앙시장",
+        "line_name": "인천2호선",
+        "travel_seconds": 1424.0,
+        "travel_minutes": 23.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67681920637938,
+          37.517585257499476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 213,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "고촌",
+        "line_name": "김포도시철도",
+        "travel_seconds": 1753.0,
+        "travel_minutes": 29.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.77034081811517,
+          37.60124578327788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 744,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "공항시장",
+        "line_name": "서울9호선",
+        "travel_seconds": 1493.0,
+        "travel_minutes": 24.9,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.81062954435907,
+          37.56372104289702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 742,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "개화",
+        "line_name": "서울9호선",
+        "travel_seconds": 1677.0,
+        "travel_minutes": 27.9,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.79692231473688,
+          37.57833577875135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 274,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "임학",
+        "line_name": "인천1호선",
+        "travel_seconds": 1500.0,
+        "travel_minutes": 25.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.73856864996466,
+          37.544852534749346
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 573,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "송정",
+        "line_name": "서울5호선",
+        "travel_seconds": 1550.0,
+        "travel_minutes": 25.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.81236580684394,
+          37.561170388769554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 571,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "개화산",
+        "line_name": "서울5호선",
+        "travel_seconds": 1530.0,
+        "travel_minutes": 25.5,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.80679309089922,
+          37.572527592108514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 871,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "마곡나루",
+        "line_name": "서울9호선급행",
+        "travel_seconds": 1660.0,
+        "travel_minutes": 27.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.82733494276691,
+          37.566874886870906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 281,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "검단오류",
+        "line_name": "인천2호선",
+        "travel_seconds": 1544.0,
+        "travel_minutes": 25.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.62795918387782,
+          37.594959347347164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 293,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "석남",
+        "line_name": "인천2호선",
+        "travel_seconds": 1537.0,
+        "travel_minutes": 25.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.6762999181793,
+          37.50742228629505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 745,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "신방화",
+        "line_name": "서울9호선",
+        "travel_seconds": 1628.0,
+        "travel_minutes": 27.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.81694853560049,
+          37.567544508753876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 273,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "계산",
+        "line_name": "인천1호선",
+        "travel_seconds": 1620.0,
+        "travel_minutes": 27.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.72760395386638,
+          37.543286863154215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 746,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "마곡나루",
+        "line_name": "서울9호선",
+        "travel_seconds": 1758.0,
+        "travel_minutes": 29.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.82731038538564,
+          37.5666956902858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 570,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "방화",
+        "line_name": "서울5호선",
+        "travel_seconds": 1620.0,
+        "travel_minutes": 27.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.81281690315659,
+          37.57755849775306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 294,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "서부여성회관",
+        "line_name": "인천2호선",
+        "travel_seconds": 1639.0,
+        "travel_minutes": 27.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67586440678384,
+          37.5003237331973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 574,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "마곡",
+        "line_name": "서울5호선",
+        "travel_seconds": 1650.0,
+        "travel_minutes": 27.5,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.82467499758694,
+          37.560185123153246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 272,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "경인교대입구",
+        "line_name": "인천1호선",
+        "travel_seconds": 1740.0,
+        "travel_minutes": 29.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.72266074678517,
+          37.53771565166249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 295,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "인천가좌",
+        "line_name": "인천2호선",
+        "travel_seconds": 1758.0,
+        "travel_minutes": 29.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.67522599094904,
+          37.48982331843308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 575,
+        "region": "cheongna",
+        "region_name": "청라국제업무지구",
+        "station_name": "발산",
+        "line_name": "서울5호선",
+        "travel_seconds": 1770.0,
+        "travel_minutes": 29.5,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.83768193704763,
+          37.55872896885388
+        ]
+      }
+    }
+  ]
+}

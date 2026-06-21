@@ -1,0 +1,22 @@
+﻿{
+  "status": "sample_schema_with_verified_core_metrics",
+  "baseYear": 2023,
+  "regions": {
+    "pangyo": {
+      "totalPopulation": 357.43,
+      "totalHouseholds": 305.84,
+      "totalWorkers": 48306.45,
+      "totalBusinesses": 1562.08,
+      "jobHousingRatio": 135.15,
+      "industryComposition": null
+    },
+    "cheongna": {
+      "totalPopulation": 4856.82,
+      "totalHouseholds": 1826.78,
+      "totalWorkers": 707.34,
+      "totalBusinesses": 297.85,
+      "jobHousingRatio": 0.15,
+      "industryComposition": null
+    }
+  }
+}

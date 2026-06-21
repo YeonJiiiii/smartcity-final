@@ -1,0 +1,1980 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 26,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "판교",
+        "line_name": "경강선",
+        "travel_seconds": 0.0,
+        "travel_minutes": 0.0,
+        "cutoff_minutes": 0,
+        "node_category": "기준역",
+        "is_seed_station": true,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.11144319589552,
+          37.39478218191577
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 824,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "판교",
+        "line_name": "신분당선",
+        "travel_seconds": 0.0,
+        "travel_minutes": 0.0,
+        "cutoff_minutes": 0,
+        "node_category": "기준역",
+        "is_seed_station": true,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.11115660285478,
+          37.39456947025172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 823,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "청계산입구",
+        "line_name": "신분당선",
+        "travel_seconds": 393.0,
+        "travel_minutes": 6.5,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.05481605824002,
+          37.448208355455385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 825,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "정자",
+        "line_name": "신분당선",
+        "travel_seconds": 198.0,
+        "travel_minutes": 3.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.10853330157944,
+          37.36731490403886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 826,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "미금",
+        "line_name": "신분당선",
+        "travel_seconds": 358.0,
+        "travel_minutes": 6.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.10882039582211,
+          37.350043730204725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 795,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "정자",
+        "line_name": "분당선",
+        "travel_seconds": 588.0,
+        "travel_minutes": 9.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.10805027517874,
+          37.366370152927516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 827,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "동천",
+        "line_name": "신분당선",
+        "travel_seconds": 516.0,
+        "travel_minutes": 8.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.10282103853412,
+          37.33792959003132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 794,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "미금",
+        "line_name": "분당선",
+        "travel_seconds": 738.0,
+        "travel_minutes": 12.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.10901849475744,
+          37.35005408399885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 822,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "양재시민의숲",
+        "line_name": "신분당선",
+        "travel_seconds": 573.0,
+        "travel_minutes": 9.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.03847630891948,
+          37.470130796153555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 828,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "수지구청",
+        "line_name": "신분당선",
+        "travel_seconds": 690.0,
+        "travel_minutes": 11.5,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.09476727916179,
+          37.32255214257053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 821,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "양재",
+        "line_name": "신분당선",
+        "travel_seconds": 704.0,
+        "travel_minutes": 11.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.03491881007974,
+          37.483707202554456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 796,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "수내",
+        "line_name": "분당선",
+        "travel_seconds": 738.0,
+        "travel_minutes": 12.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.11435203198641,
+          37.37845478546335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 829,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "성복",
+        "line_name": "신분당선",
+        "travel_seconds": 842.0,
+        "travel_minutes": 14.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.08034168829445,
+          37.31342955195196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 820,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "강남",
+        "line_name": "신분당선",
+        "travel_seconds": 832.0,
+        "travel_minutes": 13.9,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.02829567320644,
+          37.49661485108958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 508,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "양재",
+        "line_name": "서울3호선",
+        "travel_seconds": 1064.0,
+        "travel_minutes": 17.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0338695771307,
+          37.48458004712426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 793,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "오리",
+        "line_name": "분당선",
+        "travel_seconds": 858.0,
+        "travel_minutes": 14.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1089653267135,
+          37.33986223006651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 797,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "서현",
+        "line_name": "분당선",
+        "travel_seconds": 858.0,
+        "travel_minutes": 14.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.12345491196909,
+          37.38502792700807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 819,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "신논현",
+        "line_name": "신분당선",
+        "travel_seconds": 918.0,
+        "travel_minutes": 15.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0246034538366,
+          37.50426117404449
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 445,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "강남",
+        "line_name": "서울2호선",
+        "travel_seconds": 1242.0,
+        "travel_minutes": 20.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.02806167769987,
+          37.49811677955261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 830,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "상현",
+        "line_name": "신분당선",
+        "travel_seconds": 1023.0,
+        "travel_minutes": 17.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.06933533255231,
+          37.29774945722412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 792,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "죽전",
+        "line_name": "분당선",
+        "travel_seconds": 1058.0,
+        "travel_minutes": 17.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.10756652082293,
+          37.32470333266271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 798,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "이매",
+        "line_name": "분당선",
+        "travel_seconds": 968.0,
+        "travel_minutes": 16.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.12828907263011,
+          37.39642775541209
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 818,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "논현",
+        "line_name": "신분당선",
+        "travel_seconds": 995.0,
+        "travel_minutes": 16.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.02148163870044,
+          37.5107948116954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 879,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "신논현",
+        "line_name": "서울9호선급행",
+        "travel_seconds": 1448.0,
+        "travel_minutes": 24.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.02576262558543,
+          37.50508932731812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 766,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "신논현",
+        "line_name": "서울9호선",
+        "travel_seconds": 1388.0,
+        "travel_minutes": 23.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.02584213308398,
+          37.5049205564883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 799,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "야탑",
+        "line_name": "분당선",
+        "travel_seconds": 1118.0,
+        "travel_minutes": 18.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.12868520179039,
+          37.41180416352642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 27,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "이매",
+        "line_name": "경강선",
+        "travel_seconds": 1658.0,
+        "travel_minutes": 27.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.12731612795025,
+          37.394712048440546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 817,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "신사",
+        "line_name": "신분당선",
+        "travel_seconds": 1066.0,
+        "travel_minutes": 17.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.01938995736657,
+          37.51660518723846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 694,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "논현",
+        "line_name": "서울7호선",
+        "travel_seconds": 1325.0,
+        "travel_minutes": 22.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.021853180708,
+          37.51126113697782
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 831,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "광교중앙",
+        "line_name": "신분당선",
+        "travel_seconds": 1219.0,
+        "travel_minutes": 20.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.05164498562326,
+          37.2884501592719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 791,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "보정",
+        "line_name": "분당선",
+        "travel_seconds": 1238.0,
+        "travel_minutes": 20.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.10834005272706,
+          37.31279826193464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 507,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "남부터미널",
+        "line_name": "서울3호선",
+        "travel_seconds": 1214.0,
+        "travel_minutes": 20.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.01630214150559,
+          37.48500070905941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 509,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "매봉",
+        "line_name": "서울3호선",
+        "travel_seconds": 1214.0,
+        "travel_minutes": 20.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.04677618667323,
+          37.48696948538969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 503,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "신사",
+        "line_name": "서울3호선",
+        "travel_seconds": 1486.0,
+        "travel_minutes": 24.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.02031497821802,
+          37.51644325136979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 800,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "모란",
+        "line_name": "분당선",
+        "travel_seconds": 1298.0,
+        "travel_minutes": 21.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.12906689217004,
+          37.432299307382586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 506,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "교대",
+        "line_name": "서울3호선",
+        "travel_seconds": 1334.0,
+        "travel_minutes": 22.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0138279671102,
+          37.49296656096792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 510,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "도곡",
+        "line_name": "서울3호선",
+        "travel_seconds": 1334.0,
+        "travel_minutes": 22.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0555675006598,
+          37.491048742482185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 832,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "광교",
+        "line_name": "신분당선",
+        "travel_seconds": 1434.0,
+        "travel_minutes": 23.9,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.04436155242843,
+          37.302062058277194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 790,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "구성",
+        "line_name": "분당선",
+        "travel_seconds": 1378.0,
+        "travel_minutes": 23.0,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.10567039677503,
+          37.29897873981181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 446,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "역삼",
+        "line_name": "서울2호선",
+        "travel_seconds": 1332.0,
+        "travel_minutes": 22.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.03636840669158,
+          37.50063961417192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 444,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "교대",
+        "line_name": "서울2호선",
+        "travel_seconds": 1362.0,
+        "travel_minutes": 22.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0145212219361,
+          37.49391874143159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 801,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "태평",
+        "line_name": "분당선",
+        "travel_seconds": 1418.0,
+        "travel_minutes": 23.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.12780338697468,
+          37.4397579701397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 718,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "모란",
+        "line_name": "서울8호선",
+        "travel_seconds": 1628.0,
+        "travel_minutes": 27.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.12979700679931,
+          37.434013806321964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 695,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "학동",
+        "line_name": "서울7호선",
+        "travel_seconds": 1435.0,
+        "travel_minutes": 23.9,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.03181201807583,
+          37.51434017199306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 693,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "반포",
+        "line_name": "서울7호선",
+        "travel_seconds": 1415.0,
+        "travel_minutes": 23.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.01147731905735,
+          37.50812717016541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 447,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "선릉",
+        "line_name": "서울2호선",
+        "travel_seconds": 1482.0,
+        "travel_minutes": 24.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.04884944742885,
+          37.50447516204327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 505,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "고속터미널",
+        "line_name": "서울3호선",
+        "travel_seconds": 1484.0,
+        "travel_minutes": 24.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.00493444785855,
+          37.50486906037078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 511,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "대치",
+        "line_name": "서울3호선",
+        "travel_seconds": 1424.0,
+        "travel_minutes": 23.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.06288260206013,
+          37.49438321809049
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 808,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "도곡",
+        "line_name": "분당선",
+        "travel_seconds": 1664.0,
+        "travel_minutes": 27.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.05528972002826,
+          37.49126963926923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 443,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "서초",
+        "line_name": "서울2호선",
+        "travel_seconds": 1482.0,
+        "travel_minutes": 24.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.00770165990147,
+          37.491811823574814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 789,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "신갈",
+        "line_name": "분당선",
+        "travel_seconds": 1518.0,
+        "travel_minutes": 25.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1113292802862,
+          37.28614017206379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 765,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "사평",
+        "line_name": "서울9호선",
+        "travel_seconds": 1519.0,
+        "travel_minutes": 25.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0151631744664,
+          37.50422483239932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 767,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "언주",
+        "line_name": "서울9호선",
+        "travel_seconds": 1541.0,
+        "travel_minutes": 25.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.03388761609956,
+          37.50732567260436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 692,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "고속터미널",
+        "line_name": "서울7호선",
+        "travel_seconds": 1545.0,
+        "travel_minutes": 25.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.00509044776163,
+          37.50343658308469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 802,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "가천대",
+        "line_name": "분당선",
+        "travel_seconds": 1538.0,
+        "travel_minutes": 25.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.12669116703219,
+          37.44886491716168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 512,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "학여울",
+        "line_name": "서울3호선",
+        "travel_seconds": 1514.0,
+        "travel_minutes": 25.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.07121516297254,
+          37.49685981421995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 696,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "강남구청",
+        "line_name": "서울7호선",
+        "travel_seconds": 1535.0,
+        "travel_minutes": 25.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0410971937261,
+          37.5171658604025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 878,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "고속터미널",
+        "line_name": "서울9호선급행",
+        "travel_seconds": 1628.0,
+        "travel_minutes": 27.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.00395600288556,
+          37.50610053366641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 880,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "선정릉",
+        "line_name": "서울9호선급행",
+        "travel_seconds": 1634.0,
+        "travel_minutes": 27.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0440542026834,
+          37.51050736146603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 442,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "방배",
+        "line_name": "서울2호선",
+        "travel_seconds": 1632.0,
+        "travel_minutes": 27.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.99759853941437,
+          37.48147207698431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 448,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "삼성",
+        "line_name": "서울2호선",
+        "travel_seconds": 1602.0,
+        "travel_minutes": 26.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.06313210133392,
+          37.508915301152705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 504,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "잠원",
+        "line_name": "서울3호선",
+        "travel_seconds": 1604.0,
+        "travel_minutes": 26.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0115777959725,
+          37.51297848809268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 764,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "고속터미널",
+        "line_name": "서울9호선",
+        "travel_seconds": 1666.0,
+        "travel_minutes": 27.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.00404071210666,
+          37.505933374304796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 502,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "압구정",
+        "line_name": "서울3호선",
+        "travel_seconds": 1636.0,
+        "travel_minutes": 27.3,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.02849480804664,
+          37.52683240163011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 513,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "대청",
+        "line_name": "서울3호선",
+        "travel_seconds": 1634.0,
+        "travel_minutes": 27.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.07965438746068,
+          37.49351094157151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 788,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "기흥",
+        "line_name": "분당선",
+        "travel_seconds": 1668.0,
+        "travel_minutes": 27.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.11596117176872,
+          37.27548895165585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 697,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "청담",
+        "line_name": "서울7호선",
+        "travel_seconds": 1655.0,
+        "travel_minutes": 27.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.05357716068204,
+          37.519428891240395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 803,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "복정",
+        "line_name": "분당선",
+        "travel_seconds": 1718.0,
+        "travel_minutes": 28.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.12655548436801,
+          37.47088919380632
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 768,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "선정릉",
+        "line_name": "서울9호선",
+        "travel_seconds": 1651.0,
+        "travel_minutes": 27.5,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.04413239250458,
+          37.510338197449975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 691,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "내방",
+        "line_name": "서울7호선",
+        "travel_seconds": 1725.0,
+        "travel_minutes": 28.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.99366333702754,
+          37.48767847349902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 449,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "종합운동장",
+        "line_name": "서울2호선",
+        "travel_seconds": 1722.0,
+        "travel_minutes": 28.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0738741898419,
+          37.51114024667451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 719,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "수진",
+        "line_name": "서울8호선",
+        "travel_seconds": 1748.0,
+        "travel_minutes": 29.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.14085740225366,
+          37.43749374732599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 877,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "동작",
+        "line_name": "서울9호선급행",
+        "travel_seconds": 1783.0,
+        "travel_minutes": 29.7,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97859082781919,
+          37.502936332057935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 514,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "일원",
+        "line_name": "서울3호선",
+        "travel_seconds": 1754.0,
+        "travel_minutes": 29.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.08425610480239,
+          37.483892375613635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 501,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "옥수",
+        "line_name": "서울3호선",
+        "travel_seconds": 1786.0,
+        "travel_minutes": 29.8,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.01734970783959,
+          37.541646501646156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 769,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "삼성중앙",
+        "line_name": "서울9호선",
+        "travel_seconds": 1775.0,
+        "travel_minutes": 29.6,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.05332657895441,
+          37.51303446510631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 809,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "한티",
+        "line_name": "분당선",
+        "travel_seconds": 1754.0,
+        "travel_minutes": 29.2,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.05289869433383,
+          37.496292233946704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 807,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "구룡",
+        "line_name": "분당선",
+        "travel_seconds": 1744.0,
+        "travel_minutes": 29.1,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.05959630216212,
+          37.48702793012337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": 763,
+        "region": "pangyo",
+        "region_name": "제1판교테크노밸리",
+        "station_name": "신반포",
+        "line_name": "서울9호선",
+        "travel_seconds": 1765.0,
+        "travel_minutes": 29.4,
+        "cutoff_minutes": 30,
+        "node_category": "30분 도달 노드",
+        "is_seed_station": false,
+        "layer_type": "rail_node",
+        "layer_label_ko": "철도 노드",
+        "selected_time_minutes": 60
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.99611730898998,
+          37.50349234382109
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "dataset": "landuse",
+  "status": "processed",
+  "reference_year": "2023",
+  "region": "cheongna",
+  "region_name": "청라국제업무지구",
+  "method": "KLIP zoning polygons clipped by raw polygon boundary",
+  "summary": {
+    "label": "청라국제업무지구",
+    "status": "processed",
+    "zone_column": "dgm_nm",
+    "source_crs": "EPSG:5174",
+    "boundary_area_m2": 20507883.617736597,
+    "total_area_m2": 19547807.787984923,
+    "zone_area_ratio": {
+      "자연녹지지역": {
+        "area_m2": 10706852.26975941,
+        "area_ratio_percent": 54.7726
+      },
+      "제3종일반주거지역": {
+        "area_m2": 2526258.141150619,
+        "area_ratio_percent": 12.9235
+      },
+      "일반공업지역": {
+        "area_m2": 1611809.9714589799,
+        "area_ratio_percent": 8.2455
+      },
+      "중심상업지역": {
+        "area_m2": 846114.9022774019,
+        "area_ratio_percent": 4.3284
+      },
+      "준공업지역": {
+        "area_m2": 778428.458510118,
+        "area_ratio_percent": 3.9822
+      },
+      "준주거지역": {
+        "area_m2": 688598.4372900132,
+        "area_ratio_percent": 3.5226
+      },
+      "일반상업지역": {
+        "area_m2": 618485.8065143767,
+        "area_ratio_percent": 3.164
+      },
+      "제1종일반주거지역": {
+        "area_m2": 556477.8130761692,
+        "area_ratio_percent": 2.8468
+      },
+      "제2종일반주거지역": {
+        "area_m2": 519394.51330396824,
+        "area_ratio_percent": 2.657
+      },
+      "제1종전용주거지역": {
+        "area_m2": 420228.39754341583,
+        "area_ratio_percent": 2.1497
+      },
+      "제2종전용주거지역": {
+        "area_m2": 112349.80280414573,
+        "area_ratio_percent": 0.5747
+      },
+      "도시지역미지정": {
+        "area_m2": 103339.62764540064,
+        "area_ratio_percent": 0.5287
+      },
+      "보전녹지지역": {
+        "area_m2": 43091.25804373653,
+        "area_ratio_percent": 0.2204
+      },
+      "nan": {
+        "area_m2": 12851.27773644151,
+        "area_ratio_percent": 0.0657
+      },
+      "생산녹지지역": {
+        "area_m2": 3527.1108707242074,
+        "area_ratio_percent": 0.018
+      }
+    },
+    "landuse_entropy": 0.6088506584682235,
+    "feature_count": 95,
+    "clip_area_m2": 19547807.787984923,
+    "intersects_boundary": true
+  },
+  "source_inventory": {
+    "status": "processed",
+    "archive": "C:\\Users\\jiya5\\OneDrive\\Desktop\\욘띠츄츄\\KLIP_004_20260201_28000.zip",
+    "layer": "KLIP_C_UQ111",
+    "zone_column": "dgm_nm",
+    "feature_count": 95,
+    "source_crs": "EPSG:5174"
+  }
+}

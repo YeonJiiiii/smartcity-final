@@ -1,0 +1,9 @@
+﻿{
+  "type": "FeatureCollection",
+  "features": [],
+  "metadata": {
+    "status": "sample_empty",
+    "method": "subway network based isochrone placeholder",
+    "note": "nodes.tsv 및 links.tsv 미제공으로 실제 등시간권을 생성하지 못함"
+  }
+}
